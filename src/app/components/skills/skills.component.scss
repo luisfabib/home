@@ -1,0 +1,170 @@
+.skills {
+  padding: 5rem 0;
+  background: #0f172a;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+    }
+  }
+
+  .skills-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+  }
+
+  .skill-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .skill-category {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      i {
+        font-size: 1.5rem;
+        color: #3b82f6;
+      }
+
+      h3 {
+        color: #ffffff;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+
+    .skills-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+
+  .top-skills {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 1rem;
+    padding: 2rem;
+    height: fit-content;
+
+    .top-skills-title {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .skill-item {
+      margin-bottom: 2rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .skill-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+
+        .skill-name {
+          color: #ffffff;
+          font-weight: 500;
+        }
+
+        .skill-percentage {
+          color: #3b82f6;
+          font-weight: 600;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  :host ::ng-deep {
+    .skill-chip .p-chip {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: #ffffff;
+      border: none;
+      font-size: 0.85rem;
+    }
+
+    .skill-progress .p-progressbar {
+      height: 8px;
+      background: #334155;
+      border-radius: 4px;
+
+      .p-progressbar-value {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .skills {
+    .skills-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .skill-categories {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 3rem 0;
+
+    .section-header {
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    .skill-categories {
+      grid-template-columns: 1fr;
+    }
+
+    .skill-category {
+      padding: 1.5rem;
+    }
+
+    .top-skills {
+      padding: 1.5rem;
+    }
+  }
+}

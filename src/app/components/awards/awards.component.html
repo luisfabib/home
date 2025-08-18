@@ -1,0 +1,69 @@
+<section class="awards-section">
+  <div class="container">
+    <h2 class="section-title">Awards & Honors</h2>
+    <p class="section-subtitle">Recognition for Excellence in Research & Innovation</p>
+    
+    <div class="awards-grid">
+      <div *ngFor="let award of awards; let i = index" class="award-item">
+        <p-card class="award-card">
+          <ng-template pTemplate="header">
+            <div class="award-header">
+              <div class="award-icon">
+                <i [class]="'pi ' + getCategoryIcon(award.category)"></i>
+              </div>
+              <div class="award-info">
+                <h3 class="award-title">{{ award.title }}</h3>
+                <p class="award-organization">{{ award.organization }}</p>
+                <div class="award-meta">
+                  <span class="award-year">{{ award.year }}</span>
+                  <p-tag 
+                    [value]="award.level" 
+                    [severity]="getLevelColor(award.level)"
+                    class="level-tag">
+                  </p-tag>
+                </div>
+              </div>
+              <div class="award-amount" *ngIf="award.amount">
+                <span class="amount-value">{{ award.amount }}</span>
+              </div>
+            </div>
+          </ng-template>
+          
+          <div class="award-content">
+            <div class="category-section">
+              <p-chip 
+                [label]="award.category" 
+                [icon]="'pi ' + getCategoryIcon(award.category)"
+                class="category-chip">
+              </p-chip>
+            </div>
+            
+            <p class="award-description">{{ award.description }}</p>
+            
+            <div class="achievements-section" *ngIf="award.achievements && award.achievements.length > 0">
+              <h4>Key Achievements</h4>
+              <div class="achievements-list">
+                <p-chip 
+                  *ngFor="let achievement of award.achievements" 
+                  [label]="achievement"
+                  icon="pi pi-check-circle"
+                  class="achievement-chip">
+                </p-chip>
+              </div>
+            </div>
+            
+            <div class="award-actions" *ngIf="award.link">
+              <p-button 
+                label="Learn More" 
+                icon="pi pi-external-link" 
+                severity="secondary"
+                [text]="true"
+                (click)="openLink(award.link)">
+              </p-button>
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>
+</section>

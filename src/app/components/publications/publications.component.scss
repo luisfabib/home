@@ -1,0 +1,431 @@
+.publications {
+  padding: 5rem 0;
+  background: #0f172a;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+    }
+  }
+
+  .publications-content {
+    .publications-list {
+      margin-bottom: 3rem;
+    }
+
+    .publication-item {
+      margin-bottom: 2rem;
+
+      :host ::ng-deep {
+        .p-card {
+          background: #1e293b;
+          border: 1px solid #334155;
+          border-radius: 1rem;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          }
+
+          .p-card-body {
+            padding: 0;
+          }
+        }
+      }
+
+      .publication-card {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 2rem;
+        padding: 2rem;
+
+        .publication-thumbnail {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .thumbnail-placeholder {
+            width: 150px;
+            height: 200px;
+            background: #334155;
+            border: 2px solid #475569;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.3s ease;
+
+            &:hover {
+              border-color: #3b82f6;
+            }
+          }
+
+          .publication-type {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+          }
+        }
+
+        .publication-content {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+
+          .publication-header {
+            .publication-title {
+              color: #ffffff;
+              font-size: 1.4rem;
+              font-weight: 600;
+              margin-bottom: 1rem;
+              line-height: 1.4;
+            }
+
+            .publication-meta {
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              color: #94a3b8;
+              font-size: 0.9rem;
+
+              .authors {
+                strong {
+                  color: #e2e8f0;
+                }
+              }
+
+              .journal-info {
+                color: #3b82f6;
+                font-weight: 500;
+              }
+
+              .citations {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: #fbbf24;
+
+                i {
+                  font-size: 0.8rem;
+                }
+              }
+            }
+          }
+
+          .publication-abstract {
+            p {
+              color: #94a3b8;
+              line-height: 1.6;
+              margin-bottom: 0.5rem;
+            }
+          }
+
+          .publication-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+          }
+
+          .publication-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+          }
+        }
+      }
+    }
+
+    .pagination-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+
+      :host ::ng-deep {
+        .custom-paginator {
+          background: #1e293b;
+          border: 1px solid #334155;
+          border-radius: 0.5rem;
+
+          .p-paginator-page,
+          .p-paginator-next,
+          .p-paginator-prev,
+          .p-paginator-first,
+          .p-paginator-last {
+            color: #94a3b8;
+            background: transparent;
+            border: none;
+
+            &:hover {
+              background: #334155;
+              color: #ffffff;
+            }
+
+            &.p-highlight {
+              background: #3b82f6;
+              color: #ffffff;
+            }
+          }
+
+          .p-dropdown {
+            background: #334155;
+            border: 1px solid #475569;
+            color: #ffffff;
+
+            .p-dropdown-label {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+
+    .publication-stats {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 1rem;
+      padding: 2rem;
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+
+        .stat-item {
+          text-align: center;
+          padding: 1.5rem;
+          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+          border-radius: 0.75rem;
+
+          .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+          }
+
+          .stat-label {
+            color: #e2e8f0;
+            font-size: 0.9rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  :host ::ng-deep {
+    .keyword-chip .p-chip {
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      font-size: 0.8rem;
+    }
+
+    .abstract-dialog {
+      .p-dialog-header {
+        background: #1e293b;
+        border-bottom: 1px solid #334155;
+        padding: 1.5rem 2rem;
+
+        .p-dialog-title {
+          color: #ffffff;
+          font-weight: 600;
+        }
+      }
+
+      .p-dialog-content {
+        background: #1e293b;
+        color: #94a3b8;
+        padding: 2rem;
+      }
+
+      .p-dialog-footer {
+        background: #1e293b;
+        border-top: 1px solid #334155;
+        padding: 1.5rem 2rem;
+      }
+    }
+
+    .dialog-keyword-chip .p-chip {
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.dialog-header {
+  h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .dialog-meta {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+.dialog-content {
+  .abstract-section {
+    margin-bottom: 2rem;
+
+    h4 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .abstract-text {
+      color: #94a3b8;
+      line-height: 1.6;
+      text-align: justify;
+      margin: 0;
+    }
+  }
+
+  .meta-section {
+    margin-bottom: 2rem;
+
+    .meta-row {
+      margin-bottom: 0.75rem;
+      color: #94a3b8;
+
+      strong {
+        color: #e2e8f0;
+      }
+
+      a {
+        color: #3b82f6;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .keywords-section {
+    strong {
+      color: #e2e8f0;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .keywords-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1200px) {
+  .publications {
+    .publication-card {
+      grid-template-columns: 150px 1fr;
+      gap: 1.5rem;
+
+      .publication-thumbnail .thumbnail-placeholder {
+        width: 120px;
+        height: 160px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .publications {
+    padding: 3rem 0;
+
+    .section-header {
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    .publication-card {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+
+      .publication-thumbnail {
+        justify-self: center;
+
+        .thumbnail-placeholder {
+          width: 100px;
+          height: 130px;
+        }
+      }
+
+      .publication-content {
+        .publication-title {
+          font-size: 1.2rem;
+        }
+
+        .publication-actions {
+          flex-direction: column;
+        }
+      }
+    }
+
+    .publication-stats {
+      padding: 1.5rem;
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+
+        .stat-item {
+          padding: 1rem;
+
+          .stat-number {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .dialog-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .publications {
+    .publication-stats .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .publication-card {
+      padding: 1rem;
+    }
+  }
+}

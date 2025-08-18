@@ -1,0 +1,399 @@
+.experience-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  
+  .section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #10b981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 4rem;
+  }
+  
+  .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .experience-item {
+    .experience-card {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(71, 85, 105, 0.3);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      height: 100%;
+      
+      &:hover {
+        transform: translateY(-5px);
+        border-color: rgba(16, 185, 129, 0.5);
+        box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
+      }
+      
+      &.current-position {
+        border-color: rgba(245, 158, 11, 0.6);
+        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);
+        
+        &:hover {
+          border-color: rgba(245, 158, 11, 0.8);
+          box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
+        }
+        
+        .experience-header::before {
+          content: "CURRENT POSITION";
+          position: absolute;
+          top: -12px;
+          right: 16px;
+          background: linear-gradient(135deg, #f59e0b, #d97706);
+          color: white;
+          padding: 4px 8px;
+          border-radius: 12px;
+          font-size: 0.7rem;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+        }
+      }
+      
+      ::ng-deep .p-card-header {
+        padding: 2rem 2rem 1rem;
+        border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+        position: relative;
+      }
+      
+      ::ng-deep .p-card-body {
+        padding: 0;
+        height: calc(100% - 140px);
+        display: flex;
+        flex-direction: column;
+      }
+      
+      ::ng-deep .p-card-content {
+        padding: 2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  
+  .experience-header {
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      
+      .company-avatar {
+        flex-shrink: 0;
+        
+        ::ng-deep .company-logo {
+          .p-avatar {
+            background: white;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              padding: 4px;
+            }
+          }
+        }
+      }
+      
+      .position-info {
+        flex: 1;
+        
+        .position-title {
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin-bottom: 0.5rem;
+          line-height: 1.3;
+        }
+        
+        .company-name {
+          font-size: 1.1rem;
+          color: #10b981;
+          margin-bottom: 0.25rem;
+          font-weight: 600;
+        }
+        
+        .location {
+          color: #94a3b8;
+          font-size: 0.95rem;
+        }
+      }
+      
+      .header-actions {
+        flex-shrink: 0;
+        
+        ::ng-deep .p-button {
+          &.p-button-text {
+            color: #10b981;
+            
+            &:hover {
+              background: rgba(16, 185, 129, 0.1);
+            }
+          }
+        }
+      }
+    }
+    
+    .employment-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      
+      .date-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        
+        .date-range {
+          color: #e2e8f0;
+          font-weight: 500;
+        }
+        
+        .duration {
+          color: #94a3b8;
+          font-size: 0.9rem;
+        }
+      }
+      
+      ::ng-deep .employment-type {
+        .p-tag {
+          font-size: 0.8rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  
+  .experience-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    .description-section {
+      .job-description {
+        color: #e2e8f0;
+        line-height: 1.6;
+        font-size: 1rem;
+      }
+    }
+    
+    .team-info {
+      .team-details {
+        display: flex;
+        gap: 1.5rem;
+        padding: 1rem;
+        background: rgba(71, 85, 105, 0.2);
+        border-radius: 8px;
+        border: 1px solid rgba(71, 85, 105, 0.3);
+        
+        .team-size,
+        .reporting {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #94a3b8;
+          font-size: 0.9rem;
+          
+          i {
+            color: #10b981;
+          }
+        }
+      }
+    }
+    
+    h4 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(16, 185, 129, 0.3);
+    }
+    
+    .responsibilities-section {
+      .responsibilities-list {
+        list-style: none;
+        padding: 0;
+        
+        li {
+          color: #e2e8f0;
+          line-height: 1.6;
+          margin-bottom: 0.5rem;
+          padding-left: 1.5rem;
+          position: relative;
+          
+          &::before {
+            content: "→";
+            color: #10b981;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    
+    .achievements-section {
+      .achievements-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        
+        ::ng-deep .achievement-chip {
+          .p-chip {
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            font-size: 0.85rem;
+            
+            .p-chip-icon {
+              color: #f59e0b;
+            }
+          }
+        }
+      }
+    }
+    
+    .technologies-section {
+      .technologies-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        
+        ::ng-deep .technology-tag {
+          .p-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Pulse animation for current position
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.7);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 60px 0;
+    
+    .section-title {
+      font-size: 2.5rem;
+    }
+    
+    .experience-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .experience-header {
+      .header-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        
+        .company-avatar {
+          align-self: center;
+        }
+        
+        .header-actions {
+          align-self: center;
+        }
+      }
+      
+      .employment-meta {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+    
+    .team-details {
+      flex-direction: column !important;
+      gap: 1rem !important;
+      text-align: center;
+    }
+    
+    .experience-item {
+      .experience-card {
+        ::ng-deep .p-card-header {
+          padding: 1.5rem 1.5rem 1rem;
+        }
+        
+        ::ng-deep .p-card-content {
+          padding: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-section {
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .experience-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .position-title {
+      font-size: 1.1rem !important;
+    }
+    
+    .company-name {
+      font-size: 1rem !important;
+    }
+    
+    .achievements-list {
+      ::ng-deep .achievement-chip {
+        .p-chip {
+          font-size: 0.75rem !important;
+        }
+      }
+    }
+    
+    .technologies-list {
+      ::ng-deep .technology-tag {
+        .p-tag {
+          font-size: 0.75rem !important;
+        }
+      }
+    }
+  }
+}

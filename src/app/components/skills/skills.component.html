@@ -1,0 +1,45 @@
+<section id="skills" class="skills">
+  <div class="container">
+    <div class="section-header" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <p class="section-subtitle">Technologies I work with</p>
+    </div>
+
+    <div class="skills-content">
+      <!-- Skill Categories -->
+      <div class="skill-categories" pAnimateOnScroll enterClass="fadeinleft" duration="1000">
+        @for (category of skillCategories; track category.name) {
+          <div class="skill-category">
+            <div class="category-header">
+              <i [class]="category.icon"></i>
+              <h3>{{ category.name }}</h3>
+            </div>
+            <div class="skills-chips">
+              @for (skill of category.skills; track skill) {
+                <p-chip [label]="skill" class="skill-chip"></p-chip>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Top Skills with Progress -->
+      <div class="top-skills" pAnimateOnScroll enterClass="fadeinright" duration="1000">
+        <h3 class="top-skills-title">Proficiency Levels</h3>
+        @for (skill of topSkills; track skill.name) {
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-percentage">{{ skill.level }}%</span>
+            </div>
+            <p-progressBar 
+              [value]="skill.level" 
+              [showValue]="false"
+              styleClass="skill-progress">
+            </p-progressBar>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

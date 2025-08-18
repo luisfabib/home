@@ -1,0 +1,41 @@
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-header" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">Get to know me better</p>
+    </div>
+
+    <div class="about-content">
+      <div class="about-text" pAnimateOnScroll enterClass="fadeinleft" duration="1000">
+        <p-card>
+          <div class="about-description">
+            <p>
+              I'm a passionate Full Stack Developer with over 3 years of experience in creating 
+              web applications. I love turning complex problems into simple, beautiful and 
+              intuitive solutions.
+            </p>
+            <p>
+              My expertise spans across modern JavaScript frameworks, backend technologies, 
+              and cloud platforms. I'm always eager to learn new technologies and stay 
+              up-to-date with the latest industry trends.
+            </p>
+            <p>
+              When I'm not coding, you can find me reading tech blogs, contributing to 
+              open-source projects, or exploring new places. I believe in clean code, 
+              user-centered design, and continuous learning.
+            </p>
+          </div>
+        </p-card>
+      </div>
+
+      <div class="stats-grid" pAnimateOnScroll enterClass="fadeinright" duration="1000">
+        @for (stat of stats; track stat.label) {
+          <div class="stat-card">
+            <div class="stat-value">{{ stat.value }}</div>
+            <div class="stat-label">{{ stat.label }}</div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

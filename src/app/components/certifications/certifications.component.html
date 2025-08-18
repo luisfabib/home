@@ -1,0 +1,92 @@
+<section class="certifications-section">
+  <div class="container">
+    <h2 class="section-title">Certifications</h2>
+    <p class="section-subtitle">Professional Credentials & Technical Expertise</p>
+    
+    <div class="certifications-grid">
+      <div *ngFor="let cert of certifications; let i = index" class="certification-item">
+        <p-card class="certification-card" [ngClass]="{
+          'expired': isExpired(cert.expiryDate),
+          'expiring-soon': isExpiringSoon(cert.expiryDate)
+        }">
+          <ng-template pTemplate="header">
+            <div class="certification-header">
+              <div class="cert-icon">
+                <i [class]="'pi ' + getCategoryIcon(cert.category)"></i>
+              </div>
+              <div class="cert-info">
+                <h3 class="cert-title">{{ cert.title }}</h3>
+                <p class="cert-issuer">{{ cert.issuer }}</p>
+                <div class="cert-meta">
+                  <span class="issue-date">Issued: {{ cert.issueDate }}</span>
+                  <span class="expiry-date" *ngIf="cert.expiryDate">
+                    Expires: {{ cert.expiryDate }}
+                  </span>
+                </div>
+              </div>
+              <div class="cert-level">
+                <p-tag 
+                  [value]="cert.level" 
+                  [severity]="getLevelColor(cert.level)"
+                  class="level-tag">
+                </p-tag>
+              </div>
+            </div>
+          </ng-template>
+          
+          <div class="certification-content">
+            <div class="category-section">
+              <p-chip 
+                [label]="cert.category" 
+                [icon]="'pi ' + getCategoryIcon(cert.category)"
+                class="category-chip">
+              </p-chip>
+            </div>
+            
+            <p class="cert-description">{{ cert.description }}</p>
+            
+            <div class="credential-info">
+              <div class="credential-id">
+                <strong>Credential ID:</strong> {{ cert.credentialId }}
+              </div>
+              
+              <div class="score-section" *ngIf="cert.score && cert.maxScore">
+                <div class="score-header">
+                  <span class="score-label">Score:</span>
+                  <span class="score-value">{{ cert.score }}/{{ cert.maxScore }} ({{ getScorePercentage(cert) }}%)</span>
+                </div>
+                <p-progressBar 
+                  [value]="getScorePercentage(cert)"
+                  [showValue]="false"
+                  styleClass="score-progress">
+                </p-progressBar>
+              </div>
+            </div>
+            
+            <div class="skills-section" *ngIf="cert.skills.length > 0">
+              <h4>Skills Validated</h4>
+              <div class="skills-list">
+                <p-tag 
+                  *ngFor="let skill of cert.skills" 
+                  [value]="skill"
+                  severity="secondary"
+                  class="skill-tag">
+                </p-tag>
+              </div>
+            </div>
+            
+            <div class="cert-actions" *ngIf="cert.verificationUrl">
+              <p-button 
+                label="Verify Credential" 
+                icon="pi pi-external-link" 
+                severity="info"
+                [text]="true"
+                (click)="openVerification(cert.verificationUrl!)">
+              </p-button>
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>
+</section>

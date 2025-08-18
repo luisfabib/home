@@ -1,0 +1,59 @@
+<section class="education-section">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    <p class="section-subtitle">Academic Journey & Achievements</p>
+    
+    <div class="education-grid">
+      <div *ngFor="let edu of education; let i = index" class="education-item">
+        <p-card class="education-card">
+          <ng-template pTemplate="header">
+            <div class="education-header">
+              <div class="degree-info">
+                <h3 class="degree">{{ getDegreeWithField(edu) }}</h3>
+                <p class="institution">{{ edu.institution }}</p>
+                <p class="location">{{ edu.location }}</p>
+                <p class="year-range">{{ getYearRange(edu) }}</p>
+              </div>
+              <div class="gpa" *ngIf="edu.gpa">
+                <span class="gpa-label">GPA:</span>
+                <span class="gpa-value">{{ edu.gpa }}</span>
+              </div>
+            </div>
+          </ng-template>
+          
+          <div class="education-content">
+            <div class="thesis-section" *ngIf="edu.thesis">
+              <h4>Thesis</h4>
+              <p class="thesis-title">{{ edu.thesis }}</p>
+              <p class="advisor" *ngIf="edu.advisor">Advisor: {{ edu.advisor }}</p>
+            </div>
+            
+            <div class="achievements-section" *ngIf="edu.achievements.length > 0">
+              <h4>Achievements & Honors</h4>
+              <div class="achievements-list">
+                <p-chip 
+                  *ngFor="let achievement of edu.achievements" 
+                  [label]="achievement"
+                  icon="pi pi-star"
+                  class="achievement-chip">
+                </p-chip>
+              </div>
+            </div>
+            
+            <div class="courses-section" *ngIf="edu.courses.length > 0">
+              <h4>Relevant Coursework</h4>
+              <div class="courses-list">
+                <p-tag 
+                  *ngFor="let course of edu.courses" 
+                  [value]="course"
+                  severity="secondary"
+                  class="course-tag">
+                </p-tag>
+              </div>
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>
+</section>

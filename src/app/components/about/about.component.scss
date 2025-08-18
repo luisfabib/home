@@ -1,0 +1,118 @@
+.about {
+  padding: 5rem 0;
+  background: #1e293b;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+    }
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text {
+    :host ::ng-deep {
+      .p-card {
+        background: #334155;
+        border: 1px solid #475569;
+        
+        .p-card-body {
+          padding: 2rem;
+        }
+      }
+    }
+
+    .about-description {
+      p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        color: #94a3b8;
+        font-size: 1rem;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    padding: 2rem 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+  }
+}
+
+@media (max-width: 968px) {
+  .about {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    padding: 3rem 0;
+
+    .section-header {
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+      padding: 1.5rem 1rem;
+      
+      .stat-value {
+        font-size: 2rem;
+      }
+    }
+  }
+}

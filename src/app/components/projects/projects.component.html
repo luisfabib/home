@@ -1,0 +1,74 @@
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-header" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Some things I've built</p>
+    </div>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.id) {
+        <div class="project-card" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+          <p-card>
+            <ng-template pTemplate="header">
+              <div class="project-image">
+                <div class="image-placeholder">
+                  <i class="pi pi-image" style="font-size: 3rem; color: #64748b;"></i>
+                </div>
+                @if (project.featured) {
+                  <div class="featured-badge">
+                    <i class="pi pi-star"></i>
+                    Featured
+                  </div>
+                }
+              </div>
+            </ng-template>
+            
+            <div class="project-content">
+              <h3 class="project-title">{{ project.title }}</h3>
+              <p class="project-description">{{ project.description }}</p>
+              
+              <div class="project-technologies">
+                @for (tech of project.technologies; track tech) {
+                  <p-chip [label]="tech" class="tech-chip"></p-chip>
+                }
+              </div>
+            </div>
+
+            <ng-template pTemplate="footer">
+              <div class="project-actions">
+                @if (project.demoUrl) {
+                  <p-button 
+                    label="Live Demo" 
+                    icon="pi pi-external-link" 
+                    size="small"
+                    (click)="openUrl(project.demoUrl)">
+                  </p-button>
+                }
+                @if (project.githubUrl) {
+                  <p-button 
+                    label="Source Code" 
+                    icon="pi pi-github" 
+                    size="small"
+                    severity="secondary"
+                    [outlined]="true"
+                    (click)="openUrl(project.githubUrl)">
+                  </p-button>
+                }
+              </div>
+            </ng-template>
+          </p-card>
+        </div>
+      }
+    </div>
+
+    <div class="view-all-projects" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+      <p-button 
+        label="View All Projects" 
+        icon="pi pi-arrow-right" 
+        size="large"
+        severity="secondary"
+        [outlined]="true">
+      </p-button>
+    </div>
+  </div>
+</section>

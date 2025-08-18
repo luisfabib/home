@@ -1,0 +1,222 @@
+<section id="publications" class="publications">
+  <div class="container">
+    <div class="section-header" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+      <h2 class="section-title">Publications</h2>
+      <p class="section-subtitle">Research contributions and academic work</p>
+    </div>
+
+    <!-- Publications List -->
+    <div class="publications-content">
+      <div class="publications-list">
+        @for (publication of paginatedPublications; track publication.id) {
+          <div class="publication-item" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+            <p-card>
+              <div class="publication-card">
+                <!-- Thumbnail -->
+                <div class="publication-thumbnail">
+                  <div class="thumbnail-placeholder">
+                    <i class="pi pi-file-pdf" style="font-size: 2rem; color: #64748b;"></i>
+                  </div>
+                  <p-tag 
+                    [value]="getTypeLabel(publication.type)" 
+                    [severity]="getTypeSeverity(publication.type)"
+                    class="publication-type">
+                  </p-tag>
+                </div>
+
+                <!-- Content -->
+                <div class="publication-content">
+                  <div class="publication-header">
+                    <h3 class="publication-title">{{ publication.title }}</h3>
+                    
+                    <div class="publication-meta">
+                      <div class="authors">
+                        <strong>Authors:</strong> {{ publication.authors.join(', ') }}
+                      </div>
+                      <div class="journal-info">
+                        <strong>{{ publication.journal }}</strong> • {{ publication.year }}
+                      </div>
+                      @if (publication.citationCount) {
+                        <div class="citations">
+                          <i class="pi pi-bookmark"></i>
+                          {{ publication.citationCount }} citations
+                        </div>
+                      }
+                    </div>
+                  </div>
+
+                  <div class="publication-abstract">
+                    <p>{{ publication.abstract.substring(0, 200) }}...</p>
+                    <p-button 
+                      label="Read Full Abstract" 
+                      size="small"
+                      [text]="true"
+                      (click)="openAbstract(publication)">
+                    </p-button>
+                  </div>
+
+                  <div class="publication-keywords">
+                    @for (keyword of publication.keywords; track keyword) {
+                      <p-chip [label]="keyword" class="keyword-chip"></p-chip>
+                    }
+                  </div>
+
+                  <div class="publication-actions">
+                    @if (publication.doi) {
+                      <p-button 
+                        label="DOI" 
+                        icon="pi pi-external-link" 
+                        size="small"
+                        severity="secondary"
+                        [outlined]="true"
+                        (click)="openUrl('https://doi.org/' + publication.doi)">
+                      </p-button>
+                    }
+                    @if (publication.publicationUrl) {
+                      <p-button 
+                        label="View Publication" 
+                        icon="pi pi-eye" 
+                        size="small"
+                        (click)="openUrl(publication.publicationUrl)">
+                      </p-button>
+                    }
+                    @if (publication.pdfUrl) {
+                      <p-button 
+                        label="Download PDF" 
+                        icon="pi pi-download" 
+                        size="small"
+                        severity="success"
+                        [outlined]="true"
+                        (click)="openUrl(publication.pdfUrl)">
+                      </p-button>
+                    }
+                  </div>
+                </div>
+              </div>
+            </p-card>
+          </div>
+        }
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-wrapper" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+        <p-paginator 
+          [first]="first" 
+          [rows]="rows" 
+          [totalRecords]="totalRecords"
+          [rowsPerPageOptions]="[3, 6, 9, 12]"
+          (onPageChange)="onPageChange($event)"
+          styleClass="custom-paginator">
+        </p-paginator>
+      </div>
+
+      <!-- Publication Statistics -->
+      <div class="publication-stats" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">{{ publications.length }}</div>
+            <div class="stat-label">Total Publications</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">{{ totalCitations }}</div>
+            <div class="stat-label">Total Citations</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">{{ uniqueYears }}</div>
+            <div class="stat-label">Years Active</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">{{ journalArticlesCount }}</div>
+            <div class="stat-label">Journal Articles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Abstract Dialog -->
+  <p-dialog 
+    [(visible)]="displayAbstractDialog" 
+    [modal]="true" 
+    [responsive]="true" 
+    [style]="{width: '80vw', maxWidth: '800px'}"
+    [draggable]="false"
+    [resizable]="false"
+    styleClass="abstract-dialog">
+    
+    <ng-template pTemplate="header">
+      <div class="dialog-header">
+        <h3>{{ selectedPublication?.title }}</h3>
+        <p class="dialog-meta">
+          {{ selectedPublication?.journal }} • {{ selectedPublication?.year }}
+        </p>
+      </div>
+    </ng-template>
+
+    @if (selectedPublication) {
+      <div class="dialog-content">
+        <div class="abstract-section">
+          <h4>Abstract</h4>
+          <p-scrollPanel [style]="{width: '100%', height: '300px'}">
+            <p class="abstract-text">{{ selectedPublication.abstract }}</p>
+          </p-scrollPanel>
+        </div>
+
+        <div class="meta-section">
+          <div class="meta-row">
+            <strong>Authors:</strong> {{ selectedPublication.authors.join(', ') }}
+          </div>
+          @if (selectedPublication.doi) {
+            <div class="meta-row">
+              <strong>DOI:</strong> 
+              <a [href]="'https://doi.org/' + selectedPublication.doi" target="_blank">
+                {{ selectedPublication.doi }}
+              </a>
+            </div>
+          }
+          @if (selectedPublication.citationCount) {
+            <div class="meta-row">
+              <strong>Citations:</strong> {{ selectedPublication.citationCount }}
+            </div>
+          }
+        </div>
+
+        <div class="keywords-section">
+          <strong>Keywords:</strong>
+          <div class="keywords-list">
+            @for (keyword of selectedPublication.keywords; track keyword) {
+              <p-chip [label]="keyword" class="dialog-keyword-chip"></p-chip>
+            }
+          </div>
+        </div>
+      </div>
+    }
+
+    <ng-template pTemplate="footer">
+      <div class="dialog-actions">
+        @if (selectedPublication?.publicationUrl) {
+          <p-button 
+            label="View Publication" 
+            icon="pi pi-external-link" 
+            (click)="openUrl(selectedPublication?.publicationUrl)">
+          </p-button>
+        }
+        @if (selectedPublication?.pdfUrl) {
+          <p-button 
+            label="Download PDF" 
+            icon="pi pi-download" 
+            severity="success"
+            [outlined]="true"
+            (click)="openUrl(selectedPublication?.pdfUrl)">
+          </p-button>
+        }
+        <p-button 
+          label="Close" 
+          severity="secondary"
+          [outlined]="true"
+          (click)="displayAbstractDialog = false">
+        </p-button>
+      </div>
+    </ng-template>
+  </p-dialog>
+</section>

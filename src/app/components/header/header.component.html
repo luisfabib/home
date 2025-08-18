@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="container">
+    <div class="nav-brand">
+      <h2>Portfolio</h2>
+    </div>
+    <p-menubar [model]="items" class="custom-menubar">
+      <ng-template pTemplate="end">
+        <p-button 
+          label="Download CV" 
+          icon="pi pi-download" 
+          size="small"
+          severity="secondary"
+          [outlined]="true">
+        </p-button>
+      </ng-template>
+    </p-menubar>
+  </div>
+</header>
