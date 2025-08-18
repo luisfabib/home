@@ -10,7 +10,10 @@
             <div class="education-header">
               <div class="degree-info">
                 <h3 class="degree">{{ getDegreeWithField(edu) }}</h3>
-                <p class="institution">{{ edu.institution }}</p>
+                <div class="institution-info">
+                  <img *ngIf="edu.logo" [src]="edu.logo" [alt]="edu.institution + ' logo'" class="institution-logo">
+                  <p class="institution">{{ edu.institution }}</p>
+                </div>
                 <p class="location">{{ edu.location }}</p>
                 <p class="year-range">{{ getYearRange(edu) }}</p>
               </div>
@@ -23,20 +26,25 @@
           
           <div class="education-content">
             <div class="thesis-section" *ngIf="edu.thesis">
-              <h4>Thesis</h4>
-              <p class="thesis-title">{{ edu.thesis }}</p>
-              <p class="advisor" *ngIf="edu.advisor">Advisor: {{ edu.advisor }}</p>
-            </div>
-            
-            <div class="achievements-section" *ngIf="edu.achievements.length > 0">
-              <h4>Achievements & Honors</h4>
-              <div class="achievements-list">
-                <p-chip 
-                  *ngFor="let achievement of edu.achievements" 
-                  [label]="achievement"
-                  icon="pi pi-star"
-                  class="achievement-chip">
-                </p-chip>
+              <div class="thesis-info">
+                <div class="thesis-thumbnail" *ngIf="edu.thesisThumbnail">
+                  <img [src]="edu.thesisThumbnail" [alt]="'Thesis: ' + edu.thesis" class="thumbnail-image">
+                </div>
+                <div class="thesis-details">
+                  <h4>Thesis</h4>
+                  <p class="thesis-title">{{ edu.thesis }}</p>
+                  <p class="advisor" *ngIf="edu.advisor">Advisor: {{ edu.advisor }}</p>
+                  <p-button 
+                    *ngIf="edu.thesisUrl" 
+                    label="Read Thesis" 
+                    icon="pi pi-external-link" 
+                    size="small"
+                    severity="secondary"
+                    [text]="true"
+                    class="thesis-button"
+                    (click)="openThesis(edu.thesisUrl)">
+                  </p-button>
+                </div>
               </div>
             </div>
             
