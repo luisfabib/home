@@ -1,0 +1,40 @@
+<section id="hero" class="hero">
+  <div class="container">
+    <div class="hero-content" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">John Doe</span>
+        </h1>
+        <h2 class="hero-subtitle">Full Stack Developer</h2>
+        <p class="hero-description">
+          I create amazing digital experiences with modern technologies. 
+          Passionate about building scalable applications and solving complex problems.
+        </p>
+        <div class="hero-buttons">
+          <p-button 
+            label="View My Work" 
+            icon="pi pi-briefcase" 
+            size="large"
+            (click)="scrollToProjects()">
+          </p-button>
+          <p-button 
+            label="Get In Touch" 
+            icon="pi pi-envelope" 
+            size="large"
+            severity="secondary"
+            [outlined]="true"
+            (click)="scrollToContact()">
+          </p-button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-placeholder">
+          <i class="pi pi-user" style="font-size: 8rem; color: #3b82f6;"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <i class="pi pi-angle-down"></i>
+  </div>
+</section>
