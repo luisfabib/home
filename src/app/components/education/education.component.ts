@@ -39,7 +39,7 @@ export class EducationComponent {
       endYear: 2022,
       thesis: 'Advanced Data Analysis and Modeling in Dipolar EPR Spectroscopy',
       advisor: 'Prof. Dr. Gunnar Jeschke & Prof. Dr. Stefan Stoll',
-      thesisThumbnail: 'images/doctoral-thesis-thumbnail.jpg',
+      thesisThumbnail: 'images/doctoral-thesis-thumbnail.png',
       thesisUrl: 'https://www.research-collection.ethz.ch/entities/publication/24f824b8-28ea-46d0-83e5-5d6d71f66d63',
       courses: [
         'Research Software Engineering',

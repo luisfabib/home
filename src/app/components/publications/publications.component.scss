@@ -27,9 +27,8 @@
     .publication-item {
       margin-bottom: 2rem;
 
-      :host ::ng-deep {
-        .p-card {
-          background: #1e293b;
+      .p-card {
+          background: #1f293a;
           border: 1px solid #334155;
           border-radius: 1rem;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -43,13 +42,12 @@
             padding: 0;
           }
         }
-      }
 
       .publication-card {
         display: grid;
         grid-template-columns: 200px 1fr;
         gap: 2rem;
-        padding: 2rem;
+        padding: 1rem 2rem;
 
         .publication-thumbnail {
           position: relative;
@@ -57,9 +55,9 @@
           align-items: center;
           justify-content: center;
 
+          .thumbnail-img, 
           .thumbnail-placeholder {
-            width: 150px;
-            height: 200px;
+            width: 100%;            
             background: #334155;
             border: 2px solid #475569;
             border-radius: 0.5rem;
@@ -71,26 +69,30 @@
             &:hover {
               border-color: #3b82f6;
             }
+
+          }
+          .thumbnail-placeholder {
+            height: 300px !important;
           }
 
-          .publication-type {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-          }
+        }
+        .publication-type {
+          display: block;
+          width: fit-content;
+          margin-bottom: .25rem;
         }
 
         .publication-content {
           display: flex;
           flex-direction: column;
-          gap: 1.5rem;
+          gap: 1rem;
 
           .publication-header {
             .publication-title {
               color: #ffffff;
-              font-size: 1.4rem;
+              font-size: 1.2rem;
               font-weight: 600;
-              margin-bottom: 1rem;
+              margin-bottom: .25rem;
               line-height: 1.4;
             }
 
@@ -154,40 +156,37 @@
       justify-content: center;
       margin-bottom: 3rem;
 
-      :host ::ng-deep {
-        .custom-paginator {
-          background: #1e293b;
-          border: 1px solid #334155;
-          border-radius: 0.5rem;
+      .custom-paginator {
+        background: none;
+        border: none;
+        border-radius: 0.5rem;
 
-          .p-paginator-page,
-          .p-paginator-next,
-          .p-paginator-prev,
-          .p-paginator-first,
-          .p-paginator-last {
-            color: #94a3b8;
-            background: transparent;
-            border: none;
+        .p-paginator-page,
+        .p-paginator-next,
+        .p-paginator-prev,
+        .p-paginator-first,
+        .p-paginator-last {
+          color: #94a3b8;
+          background: transparent;
+          border: none;
 
-            &:hover {
-              background: #334155;
-              color: #ffffff;
-            }
-
-            &.p-highlight {
-              background: #3b82f6;
-              color: #ffffff;
-            }
+          &:hover {
+            background: #334155;
+            color: #ffffff;
           }
 
-          .p-dropdown {
-            background: #334155;
-            border: 1px solid #475569;
+          &.p-highlight {
+            background: #3b82f6;
             color: #ffffff;
+          }
+        }
 
-            .p-dropdown-label {
-              color: #ffffff;
-            }
+        .p-dropdown {
+          border: 1px solid #475569;
+          color: #ffffff;
+
+          .p-dropdown-label {
+            color: #ffffff;
           }
         }
       }
@@ -198,6 +197,7 @@
       border: 1px solid #334155;
       border-radius: 1rem;
       padding: 2rem;
+      margin-bottom: 2rem;
 
       .stats-grid {
         display: grid;
@@ -227,45 +227,45 @@
     }
   }
 
-  :host ::ng-deep {
-    .keyword-chip .p-chip {
-      background: rgba(59, 130, 246, 0.1);
-      color: #3b82f6;
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      font-size: 0.8rem;
-    }
 
-    .abstract-dialog {
-      .p-dialog-header {
-        background: #1e293b;
-        border-bottom: 1px solid #334155;
-        padding: 1.5rem 2rem;
+  .keyword-chip {
+    background: rgba(59, 130, 246, 0.1) !important;
+    color: #3b82f6 !important;
+    border: 1px solid rgba(59, 130, 246, 0.2) !important;
+    font-size: 0.8rem !important;
+    padding: .2rem .5rem;
+  }
 
-        .p-dialog-title {
-          color: #ffffff;
-          font-weight: 600;
-        }
-      }
+  .abstract-dialog {
+    .p-dialog-header {
+      background: #1e293b;
+      border-bottom: 1px solid #334155;
+      padding: 1.5rem 2rem;
 
-      .p-dialog-content {
-        background: #1e293b;
-        color: #94a3b8;
-        padding: 2rem;
-      }
-
-      .p-dialog-footer {
-        background: #1e293b;
-        border-top: 1px solid #334155;
-        padding: 1.5rem 2rem;
+      .p-dialog-title {
+        color: #ffffff;
+        font-weight: 600;
       }
     }
 
-    .dialog-keyword-chip .p-chip {
-      background: rgba(59, 130, 246, 0.1);
-      color: #3b82f6;
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      font-size: 0.75rem;
+    .p-dialog-content {
+      background: #1e293b;
+      color: #94a3b8;
+      padding: 2rem;
     }
+
+    .p-dialog-footer {
+      background: #1e293b;
+      border-top: 1px solid #334155;
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  .dialog-keyword-chip .p-chip {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    font-size: 0.75rem;
   }
 }
 
@@ -397,6 +397,7 @@
 
     .publication-stats {
       padding: 1.5rem;
+      margin-bottom: 2rem;
 
       .stats-grid {
         grid-template-columns: 1fr 1fr;
@@ -428,4 +429,8 @@
       padding: 1rem;
     }
   }
+}
+
+.graphical-abstract-section {
+  margin-bottom: 2rem;
 }

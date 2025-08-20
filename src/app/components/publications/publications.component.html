@@ -2,11 +2,48 @@
   <div class="container">
     <div class="section-header" pAnimateOnScroll enterClass="fadeinup" duration="1000">
       <h2 class="section-title">Publications</h2>
-      <p class="section-subtitle">Research contributions and academic work</p>
+      <p class="section-subtitle">Research contributions and academic work over the years</p>
     </div>
 
     <!-- Publications List -->
     <div class="publications-content">
+      <!-- Publication Statistics -->
+      <div class="publication-stats" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">{{ publicationsData.length }}</div>
+            <div class="stat-label">Total Publications</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">{{ totalCitations }}</div>
+            <div class="stat-label">Total Citations</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">{{ uniqueYears }}</div>
+            <div class="stat-label">Years Active</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">{{ journalArticlesCount }}</div>
+            <div class="stat-label">Journal Articles</div>
+          </div>
+        </div>
+      </div>
+      <!-- Pagination -->
+      <div class="pagination-wrapper" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+          <div style="display: flex; align-items: center; gap: .5rem; margin-right: 1rem;">
+            <p-toggleswitch [(ngModel)]="filterFirstAuthor" (ngModelChange)="publications.set(sortedPublications($event))" />
+            <span class="filter-label">Limit to First Author Publications</span>
+          </div>
+
+        <p-paginator 
+          [first]="first" 
+          [rows]="rows" 
+          [totalRecords]="publications().length"
+          [rowsPerPageOptions]="[3, 6, 9, 12]"
+          (onPageChange)="onPageChange($event)"
+          styleClass="custom-paginator">
+        </p-paginator>
+      </div>
       <div class="publications-list">
         @for (publication of paginatedPublications; track publication.id) {
           <div class="publication-item" pAnimateOnScroll enterClass="fadeinup" duration="1000">
@@ -14,45 +51,60 @@
               <div class="publication-card">
                 <!-- Thumbnail -->
                 <div class="publication-thumbnail">
-                  <div class="thumbnail-placeholder">
-                    <i class="pi pi-file-pdf" style="font-size: 2rem; color: #64748b;"></i>
-                  </div>
-                  <p-tag 
-                    [value]="getTypeLabel(publication.type)" 
-                    [severity]="getTypeSeverity(publication.type)"
-                    class="publication-type">
-                  </p-tag>
+                  @if (publication.thumbnail) {
+                    <img [src]="publication.thumbnail" alt="Thumbnail" class="thumbnail-img" />
+                  } @else {
+                    <div class="thumbnail-placeholder">
+                      <i class="pi pi-file-pdf" style="font-size: 2rem; color: #64748b;"></i>
+                    </div>
+                  }
                 </div>
 
                 <!-- Content -->
                 <div class="publication-content">
                   <div class="publication-header">
+                  <p-tag 
+                    [value]="getTypeLabel(publication.type)" 
+                    [severity]="getTypeSeverity(publication.type)"
+                    class="publication-type">
+                  </p-tag>
+
                     <h3 class="publication-title">{{ publication.title }}</h3>
                     
                     <div class="publication-meta">
                       <div class="authors">
-                        <strong>Authors:</strong> {{ publication.authors.join(', ') }}
+                        @for (author of publication.authors; track author; let last = $last) {
+                          @if (author.includes('Luis')) {
+                            <strong>{{ author }}</strong>
+                          } @else {
+                            {{ author }}}@if(!last){, }
+                        }
                       </div>
                       <div class="journal-info">
                         <strong>{{ publication.journal }}</strong> • {{ publication.year }}
                       </div>
-                      @if (publication.citationCount) {
-                        <div class="citations">
-                          <i class="pi pi-bookmark"></i>
-                          {{ publication.citationCount }} citations
-                        </div>
+                      @if (publication.doi) {
+                        @let citationCount = publication | citations;
+                        @if (citationCount) {
+                          <div class="citations">
+                            <i class="pi pi-bookmark"></i>
+                            {{ citationCount }} citations
+                          </div>
+                        }
                       }
                     </div>
                   </div>
 
                   <div class="publication-abstract">
-                    <p>{{ publication.abstract.substring(0, 200) }}...</p>
-                    <p-button 
-                      label="Read Full Abstract" 
-                      size="small"
-                      [text]="true"
-                      (click)="openAbstract(publication)">
-                    </p-button>
+                    <p>
+                      {{ publication.abstract.substring(0, 200) }}...
+                      <p-button 
+                        label="Read Full Abstract" 
+                        size="small"
+                        [text]="true"
+                        (click)="openAbstract(publication)">
+                      </p-button>
+                    </p>
                   </div>
 
                   <div class="publication-keywords">
@@ -98,39 +150,7 @@
         }
       </div>
 
-      <!-- Pagination -->
-      <div class="pagination-wrapper" pAnimateOnScroll enterClass="fadeinup" duration="1000">
-        <p-paginator 
-          [first]="first" 
-          [rows]="rows" 
-          [totalRecords]="totalRecords"
-          [rowsPerPageOptions]="[3, 6, 9, 12]"
-          (onPageChange)="onPageChange($event)"
-          styleClass="custom-paginator">
-        </p-paginator>
-      </div>
 
-      <!-- Publication Statistics -->
-      <div class="publication-stats" pAnimateOnScroll enterClass="fadeinup" duration="1000">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">{{ publications.length }}</div>
-            <div class="stat-label">Total Publications</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">{{ totalCitations }}</div>
-            <div class="stat-label">Total Citations</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">{{ uniqueYears }}</div>
-            <div class="stat-label">Years Active</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">{{ journalArticlesCount }}</div>
-            <div class="stat-label">Journal Articles</div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -150,11 +170,38 @@
         <p class="dialog-meta">
           {{ selectedPublication?.journal }} • {{ selectedPublication?.year }}
         </p>
+        @if (selectedPublication && selectedPublication.doi) {
+          @let citationCount = selectedPublication | citations;
+          <small>
+            <strong>Citations:</strong> 
+            @if (citationCount!=undefined && citationCount >= 0) {
+              {{ citationCount }}
+            } @else {
+              <span>Loading...</span>
+            }
+          </small>
+        }
+          @if (selectedPublication && selectedPublication.doi) {
+            <br>
+            <small >
+              <strong>DOI:</strong> 
+              <a [href]="'https://doi.org/' + selectedPublication.doi" target="_blank">
+                {{ selectedPublication.doi }}
+              </a>
+            </small>
+          }
       </div>
     </ng-template>
 
     @if (selectedPublication) {
       <div class="dialog-content">
+
+        <div class="abstract-section">
+          <h4>Authors</h4>
+          <div class="meta-row">
+            {{ selectedPublication.authors.join(', ') }}
+          </div>
+        </div>
         <div class="abstract-section">
           <h4>Abstract</h4>
           <p-scrollPanel [style]="{width: '100%', height: '300px'}">
@@ -162,27 +209,11 @@
           </p-scrollPanel>
         </div>
 
-        <div class="meta-section">
-          <div class="meta-row">
-            <strong>Authors:</strong> {{ selectedPublication.authors.join(', ') }}
-          </div>
-          @if (selectedPublication.doi) {
-            <div class="meta-row">
-              <strong>DOI:</strong> 
-              <a [href]="'https://doi.org/' + selectedPublication.doi" target="_blank">
-                {{ selectedPublication.doi }}
-              </a>
-            </div>
-          }
-          @if (selectedPublication.citationCount) {
-            <div class="meta-row">
-              <strong>Citations:</strong> {{ selectedPublication.citationCount }}
-            </div>
-          }
+        <div class="graphical-abstract-section" *ngIf="selectedPublication.graphicalAbstract">
+          <img [src]="selectedPublication.graphicalAbstract" alt="Graphical Abstract" class="graphical-abstract-img" />
         </div>
 
         <div class="keywords-section">
-          <strong>Keywords:</strong>
           <div class="keywords-list">
             @for (keyword of selectedPublication.keywords; track keyword) {
               <p-chip [label]="keyword" class="dialog-keyword-chip"></p-chip>
