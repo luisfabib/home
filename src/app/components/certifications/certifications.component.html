@@ -45,23 +45,6 @@
             
             <p class="cert-description">{{ cert.description }}</p>
             
-            <div class="credential-info">
-              <div class="credential-id">
-                <strong>Credential ID:</strong> {{ cert.credentialId }}
-              </div>
-              
-              <div class="score-section" *ngIf="cert.score && cert.maxScore">
-                <div class="score-header">
-                  <span class="score-label">Score:</span>
-                  <span class="score-value">{{ cert.score }}/{{ cert.maxScore }} ({{ getScorePercentage(cert) }}%)</span>
-                </div>
-                <p-progressBar 
-                  [value]="getScorePercentage(cert)"
-                  [showValue]="false"
-                  styleClass="score-progress">
-                </p-progressBar>
-              </div>
-            </div>
             
             <div class="skills-section" *ngIf="cert.skills.length > 0">
               <h4>Skills Validated</h4>

@@ -29,7 +29,7 @@
   }
   
   .certification-item {
-    .certification-card {
+    .certification-card .p-card{
       background: rgba(30, 41, 59, 0.8);
       border: 1px solid rgba(71, 85, 105, 0.3);
       border-radius: 16px;
@@ -59,20 +59,20 @@
         }
       }
       
-      ::ng-deep .p-card-header {
+      .p-card-header {
         padding: 2rem 2rem 1rem;
         border-bottom: 1px solid rgba(71, 85, 105, 0.3);
       }
       
-      ::ng-deep .p-card-body {
+      .p-card-body {
         padding: 0;
         height: calc(100% - 140px);
         display: flex;
         flex-direction: column;
       }
       
-      ::ng-deep .p-card-content {
-        padding: 2rem;
+      .p-card-content {
+        padding: 0 2rem 1rem 2rem;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -108,14 +108,12 @@
         font-size: 1.2rem;
         font-weight: 700;
         color: #ffffff;
-        margin-bottom: 0.5rem;
         line-height: 1.3;
       }
       
       .cert-issuer {
         font-size: 0.95rem;
         color: #06b6d4;
-        margin-bottom: 0.5rem;
         font-weight: 500;
       }
       
@@ -137,7 +135,7 @@
     }
     
     .cert-level {
-      ::ng-deep .level-tag {
+      .level-tag {
         .p-tag {
           font-size: 0.8rem;
           font-weight: 600;
@@ -149,12 +147,12 @@
   .certification-content {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.1rem;
     flex: 1;
     
     .category-section {
-      ::ng-deep .category-chip {
-        .p-chip {
+      .category-chip {
+        &.p-chip {
           background: rgba(6, 182, 212, 0.1);
           color: #06b6d4;
           border: 1px solid rgba(6, 182, 212, 0.3);
@@ -206,7 +204,7 @@
           }
         }
         
-        ::ng-deep .score-progress {
+        .score-progress {
           .p-progressbar {
             height: 8px;
             background: rgba(71, 85, 105, 0.3);
@@ -234,10 +232,10 @@
         flex-wrap: wrap;
         gap: 0.5rem;
         
-        ::ng-deep .skill-tag {
-          .p-tag {
-            background: rgba(139, 92, 246, 0.1);
-            color: #8b5cf6;
+        .skill-tag {
+          &.p-tag {
+            background: rgba(54, 117, 126, 0.1);
+            color: #729fc0;
             border: 1px solid rgba(139, 92, 246, 0.3);
             font-size: 0.8rem;
           }
@@ -249,7 +247,7 @@
       margin-top: auto;
       padding-top: 1rem;
       
-      ::ng-deep .p-button {
+      .p-button {
         &.p-button-text {
           color: #06b6d4;
           
@@ -320,11 +318,11 @@
     
     .certification-item {
       .certification-card {
-        ::ng-deep .p-card-header {
+        .p-card-header {
           padding: 1.5rem 1.5rem 1rem;
         }
         
-        ::ng-deep .p-card-content {
+        .p-card-content {
           padding: 1.5rem;
         }
       }
@@ -349,7 +347,7 @@
     }
     
     .skills-list {
-      ::ng-deep .skill-tag {
+      .skill-tag {
         .p-tag {
           font-size: 0.75rem;
         }

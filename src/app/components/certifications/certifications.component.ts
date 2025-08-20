@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
@@ -11,7 +11,6 @@ interface Certification {
   issuer: string;
   issueDate: string;
   expiryDate?: string;
-  credentialId: string;
   verificationUrl?: string;
   skills: string[];
   description: string;
@@ -27,100 +26,80 @@ interface Certification {
   standalone: true,
   imports: [CommonModule, CardModule, ChipModule, TagModule, ButtonModule, ProgressBarModule],
   templateUrl: './certifications.component.html',
-  styleUrl: './certifications.component.scss'
+  styleUrl: './certifications.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class CertificationsComponent {
   certifications: Certification[] = [
     {
-      title: 'AWS Certified Solutions Architect - Professional',
-      issuer: 'Amazon Web Services',
-      issueDate: 'January 2024',
-      expiryDate: 'January 2027',
-      credentialId: 'AWS-PSA-123456789',
-      verificationUrl: 'https://aws.amazon.com/verification',
-      skills: ['Cloud Architecture', 'AWS Services', 'Security', 'Cost Optimization', 'Migration'],
-      description: 'Validates advanced technical skills and experience in designing distributed applications and systems on the AWS platform.',
-      level: 'Expert',
-      category: 'Cloud Computing',
-      logo: 'assets/images/aws-logo.png',
-      score: 850,
-      maxScore: 1000
-    },
-    {
-      title: 'Google Cloud Professional Machine Learning Engineer',
-      issuer: 'Google Cloud',
-      issueDate: 'November 2023',
-      expiryDate: 'November 2025',
-      credentialId: 'GCP-MLE-987654321',
-      verificationUrl: 'https://cloud.google.com/certification/verify',
-      skills: ['Machine Learning', 'TensorFlow', 'BigQuery ML', 'Vertex AI', 'MLOps'],
-      description: 'Demonstrates ability to design, build, and productionize ML models to solve business challenges using Google Cloud technologies.',
-      level: 'Expert',
+      title: 'Machine Learning with Python',
+      issuer: 'FreeCodeCamp',
+      issueDate: 'January 2023',
+      verificationUrl: 'https://freecodecamp.org/certification/luisfabib/machine-learning-with-python-v7',
+      skills: ['PyTorch', 'TensorFlow', 'SciKit-Learn', 'Pandas'],
+      description: 'Developer certification representing approximately 300 hours of coursework and projects in machine learning using Python.',
+      level: 'Intermediate',
       category: 'Machine Learning',
-      logo: 'assets/images/gcp-logo.png',
-      score: 92,
-      maxScore: 100
     },
     {
-      title: 'Certified Kubernetes Administrator (CKA)',
-      issuer: 'Cloud Native Computing Foundation',
-      issueDate: 'September 2023',
-      expiryDate: 'September 2026',
-      credentialId: 'CNCF-CKA-456789123',
-      verificationUrl: 'https://training.linuxfoundation.org/certification/verify',
-      skills: ['Kubernetes', 'Container Orchestration', 'Docker', 'DevOps', 'Cloud Native'],
-      description: 'Validates skills, knowledge, and competency to perform the responsibilities of Kubernetes administrators.',
-      level: 'Advanced',
-      category: 'DevOps',
-      logo: 'assets/images/kubernetes-logo.png',
-      score: 88,
-      maxScore: 100
+      title: 'Relational Databases',
+      issuer: 'FreeCodeCamp',
+      issueDate: 'February 2023',
+      verificationUrl: 'https://freecodecamp.org/certification/luisfabib/relational-database-v8',
+      skills: ['SQL', 'PostgreSQL', 'Database Design', 'Query Optimization'],
+      description: 'Developer certification representing approximately 300 hours of coursework and projects in relational database management.',
+      level: 'Intermediate',
+      category: 'Databases',
     },
     {
-      title: 'Microsoft Azure AI Engineer Associate',
-      issuer: 'Microsoft',
-      issueDate: 'July 2023',
-      expiryDate: 'July 2025',
-      credentialId: 'MSFT-AI-789123456',
-      verificationUrl: 'https://learn.microsoft.com/credentials',
-      skills: ['Azure Cognitive Services', 'Azure Machine Learning', 'Computer Vision', 'NLP', 'Bot Framework'],
-      description: 'Validates skills in designing and implementing AI solutions using Azure Cognitive Services and Azure Applied AI services.',
-      level: 'Advanced',
-      category: 'Artificial Intelligence',
-      logo: 'assets/images/azure-logo.png',
-      score: 780,
-      maxScore: 1000
+      title: 'Responsive Web Design',
+      issuer: 'FreeCodeCamp',
+      issueDate: 'February 2023',
+      verificationUrl: 'https://freecodecamp.org/certification/luisfabib/responsive-web-design',
+      skills: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+      description: 'Developer certification representing approximately 300 hours of coursework and projects in responsive web design.',
+      level: 'Beginner',
+      category: 'Frontend Development',
     },
     {
-      title: 'Certified Information Systems Security Professional (CISSP)',
-      issuer: '(ISC)² International Information System Security Certification Consortium',
-      issueDate: 'May 2023',
-      expiryDate: 'May 2026',
-      credentialId: 'ISC2-CISSP-321654987',
-      verificationUrl: 'https://www.isc2.org/member-verification',
-      skills: ['Information Security', 'Risk Management', 'Cryptography', 'Network Security', 'Incident Response'],
-      description: 'Globally recognized standard of achievement that confirms knowledge in the field of information security.',
-      level: 'Expert',
-      category: 'Cybersecurity',
-      logo: 'assets/images/cissp-logo.png',
-      score: 750,
-      maxScore: 1000
-    },
-    {
-      title: 'TensorFlow Developer Certificate',
-      issuer: 'TensorFlow',
+      title: 'Frontend Development Libraries',
+      issuer: 'FreeCodeCamp',
       issueDate: 'March 2023',
-      expiryDate: 'March 2026',
-      credentialId: 'TF-DEV-654321987',
-      verificationUrl: 'https://www.credential.net/verify',
-      skills: ['TensorFlow', 'Deep Learning', 'Neural Networks', 'Computer Vision', 'NLP'],
-      description: 'Demonstrates proficiency in using TensorFlow to solve deep learning and machine learning problems.',
-      level: 'Advanced',
-      category: 'Machine Learning',
-      logo: 'assets/images/tensorflow-logo.png',
-      score: 95,
-      maxScore: 100
-    }
+      verificationUrl: 'https://freecodecamp.org/certification/luisfabib/frontend-development-libraries',
+      skills: ['React', 'Vue.js', 'Angular', 'Bootstrap'],
+      description: 'Developer certification representing approximately 300 hours of coursework and projects in frontend development libraries.',
+      level: 'Beginner',
+      category: 'Frontend Development',
+    },
+    {
+      title: 'Data Visualization',
+      issuer: 'FreeCodeCamp',
+      issueDate: 'March 2023',
+      verificationUrl: 'https://freecodecamp.org/certification/luisfabib/data-visualization',
+      skills: ['D3.js', 'Chart.js', 'Data Analysis', 'Data Storytelling'],
+      description: 'Developer certification representing approximately 300 hours of coursework and projects in data visualization.',
+      level: 'Beginner',
+      category: 'Frontend Development',
+    },
+    {
+      title: 'Legacy JavaScript Algorithms and Data Structures',
+      issuer: 'FreeCodeCamp',
+      issueDate: 'March 2023',
+      verificationUrl: 'https://freecodecamp.org/certification/luisfabib/legacy-javascript-algorithms-and-data-structures',
+      skills: ['JavaScript', 'Algorithms', 'Data Structures'],
+      description: 'Developer certification representing approximately 300 hours of coursework and projects in legacy JavaScript algorithms and data structures.',
+      level: 'Intermediate',
+      category: 'Frontend Development',
+    },
+    {
+      title: 'Project management for research',
+      issuer: 'ETH Zurich',
+      issueDate: 'March 2021',
+      skills: ['Project Management', 'Research Methods', 'Team Collaboration'],
+      description: 'Certification representing a three-day course on project management tailored for research environments.',
+      level: 'Beginner',
+      category: 'Project Management',
+    },
   ];
 
   getLevelColor(level: string): string {
@@ -135,12 +114,13 @@ export class CertificationsComponent {
 
   getCategoryIcon(category: string): string {
     const icons = {
-      'Cloud Computing': 'pi-cloud',
+      'Databases': 'pi-database',
       'Machine Learning': 'pi-android',
-      'DevOps': 'pi-cog',
+      'Frontend Development': 'pi-desktop',
       'Artificial Intelligence': 'pi-star',
       'Cybersecurity': 'pi-shield',
-      'Software Development': 'pi-code'
+      'Software Development': 'pi-code',
+      'Project Management': 'pi-briefcase'
     };
     return icons[category as keyof typeof icons] || 'pi-certificate';
   }
