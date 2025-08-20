@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
@@ -23,79 +23,60 @@ interface Award {
   standalone: true,
   imports: [CommonModule, CardModule, ChipModule, TagModule, ButtonModule],
   templateUrl: './awards.component.html',
-  styleUrl: './awards.component.scss'
+  styleUrl: './awards.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class AwardsComponent {
   awards: Award[] = [
     {
-      title: 'Best Paper Award',
-      organization: 'International Conference on Machine Learning (ICML)',
-      year: 2024,
+      title: 'IES Best Paper Award',
+      organization: 'International EPR Society',
+      year: 2021,
       category: 'Research Excellence',
-      description: 'Recognized for outstanding research contribution in deep learning optimization techniques for large-scale distributed systems.',
+      description: 'Honored for significant advances and breakthrough developments in the field of Electron Paramagnetic Resonance (EPR) spectroscopy.',
       level: 'International',
-      achievements: ['Top 1% of submissions', 'Oral presentation', 'Featured in conference highlights'],
-      image: 'assets/images/icml-award.png',
-      link: 'https://icml.cc/awards'
+      link: 'https://ieprs.org/best-paper-award/'
     },
     {
-      title: 'Outstanding Graduate Student Award',
-      organization: 'IEEE Computer Society',
-      year: 2023,
-      category: 'Academic Achievement',
-      description: 'Annual award recognizing exceptional academic performance and research contributions in computer science.',
-      amount: '$5,000',
-      level: 'International',
-      achievements: ['GPA > 3.9', 'Multiple publications', 'Research impact'],
-      image: 'assets/images/ieee-award.png',
-      link: 'https://ieee.org/awards'
-    },
-    {
-      title: 'Innovation Excellence Award',
-      organization: 'Google Research',
-      year: 2023,
-      category: 'Industry Innovation',
-      description: 'Recognition for developing novel AI algorithms that improve computational efficiency by 40% in production systems.',
-      amount: '$10,000',
-      level: 'International',
-      achievements: ['Production deployment', 'Patent filing', 'Team collaboration'],
-      image: 'assets/images/google-award.png',
-      link: 'https://research.google.com/awards'
-    },
-    {
-      title: 'Young Researcher Award',
-      organization: 'Association for Computing Machinery (ACM)',
+      title: 'SCNAT Chemistry Travel Award',
+      organization: 'Swiss Academy of Sciences',
       year: 2022,
       category: 'Research Promise',
-      description: 'Awarded to promising young researchers under 30 for significant contributions to artificial intelligence research.',
-      amount: '$3,000',
-      level: 'International',
-      achievements: ['Under 30 years old', 'Peer nomination', 'Research impact'],
-      image: 'assets/images/acm-award.png',
-      link: 'https://acm.org/awards'
+      description: 'Awarded for outstanding PhD research and academic excellence in Chemistry in Switzerland.',
+      level: 'National',
     },
     {
-      title: 'Dean Excellence Fellowship',
-      organization: 'Stanford University',
+      title: 'JEOL Student Lecture Competition',
+      organization: 'JEOL (UK) Ltd.',
+      year: 2022,
+      category: 'Academic Excellence',
+      description: 'Annual award recognizing the best student lectures at the Royal Society of Chemistry ESR Meeting.',
+      level: 'International',
+    },
+    {
+      title: 'IES Poster Award',
+      organization: 'International EPR Society',
       year: 2021,
       category: 'Academic Excellence',
-      description: 'Prestigious fellowship awarded to top-performing PhD students demonstrating exceptional research potential.',
-      amount: '$25,000',
-      level: 'Institutional',
-      achievements: ['Top 5% of PhD students', 'Research excellence', 'Teaching contribution'],
-      image: 'assets/images/stanford-fellowship.png'
+      description: 'Recognized for presenting one of the top posters at the 54th Annual International Meeting of the ESR Spectroscopy Group of the Royal Society of Chemistry.',
+      level: 'International',
     },
     {
-      title: 'Best Student Paper Award',
-      organization: 'Neural Information Processing Systems (NeurIPS)',
-      year: 2021,
-      category: 'Research Excellence',
-      description: 'Recognized for groundbreaking work in neural network architecture optimization and efficiency improvements.',
+      title: 'Springer Prize Winner',
+      organization: 'Springer Science + Business Media',
+      year: 2019,
+      category: 'Academic Excellence',
+      description: 'Awarded for presenting an outstanding poster at the 6th Annual Rocky Mountain Conference on Magnetic Resonance.',
       level: 'International',
-      achievements: ['Student first author', 'Novel methodology', 'Reproducible results'],
-      image: 'assets/images/neurips-award.png',
-      link: 'https://neurips.cc/awards'
-    }
+    },
+    {
+      title: 'IES Poster Award',
+      organization: 'International EPR Society',
+      year: 2019,
+      category: 'Academic Excellence',
+      description: 'Recognized for presenting one of the top posters at the 54th Annual International Meeting of the ESR Spectroscopy Group of the Royal Society of Chemistry.',
+      level: 'International',
+    },
   ];
 
   getLevelColor(level: string): string {
