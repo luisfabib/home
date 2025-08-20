@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { ChipModule } from 'primeng/chip';
@@ -26,7 +26,8 @@ interface Education {
   standalone: true,
   imports: [CommonModule, CardModule, ChipModule, TagModule, ButtonModule],
   templateUrl: './education.component.html',
-  styleUrl: './education.component.scss'
+  styleUrl: './education.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class EducationComponent {
   education: Education[] = [

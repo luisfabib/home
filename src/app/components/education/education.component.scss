@@ -29,9 +29,9 @@
   }
   
   .education-item {
-    .education-card {
-      background: rgba(30, 41, 59, 0.8);
-      border: 1px solid rgba(71, 85, 105, 0.3);
+    .education-card .p-card {
+          background: #1f293a;
+          border: 1px solid #334155;
       border-radius: 16px;
       transition: all 0.3s ease;
       
@@ -41,16 +41,18 @@
         box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
       }
       
-      ::ng-deep .p-card-header {
+      .p-card-header {
+        background: rgba(30, 41, 59, 0.8);
         padding: 2rem 2rem 1rem;
         border-bottom: 1px solid rgba(71, 85, 105, 0.3);
       }
       
-      ::ng-deep .p-card-body {
+      .p-card-body {
+        background: rgba(30, 41, 59, 0.8);
         padding: 0;
       }
-      
-      ::ng-deep .p-card-content {
+
+      .p-card-content {
         padding: 2rem;
       }
     }
@@ -172,7 +174,7 @@
       }
       
       .thesis-button {
-        ::ng-deep .p-button {
+        .p-button {
           color: #3b82f6 !important;
           border-color: #3b82f6 !important;
           padding: 0.5rem 1rem;
@@ -219,13 +221,11 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        
-        ::ng-deep .course-tag {
-          .p-tag {
-            background: rgba(139, 92, 246, 0.1);
-            color: #8b5cf6;
+
+        .course-tag {
+            background: rgba(59, 130, 246, 0.1) !important;
+            color: #3b82f6 !important;
             border: 1px solid rgba(139, 92, 246, 0.3);
-          }
         }
       }
     }
@@ -261,11 +261,11 @@
     
     .education-item {
       .education-card {
-        ::ng-deep .p-card-header {
+        .p-card-header {
           padding: 1.5rem 1.5rem 1rem;
         }
         
-        ::ng-deep .p-card-content {
+        .p-card-content {
           padding: 1.5rem;
         }
       }
@@ -289,8 +289,8 @@
 
     .achievements-list,
     .courses-list {
-      ::ng-deep .p-chip,
-      ::ng-deep .p-tag {
+      .p-chip,
+      .p-tag {
         font-size: 0.8rem;
       }
     }
