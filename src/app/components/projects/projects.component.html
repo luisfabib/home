@@ -12,7 +12,11 @@
             <ng-template pTemplate="header">
               <div class="project-image">
                 <div class="image-placeholder">
-                  <i class="pi pi-image" style="font-size: 3rem; color: #64748b;"></i>
+                  @if (project.image) {
+                    <img [src]="project.image" alt="{{ project.title }} screenshot" class="project-img" />
+                  } @else {
+                    <i class="pi pi-image" style="font-size: 3rem; color: #64748b;"></i>
+                  }
                 </div>
                 @if (project.featured) {
                   <div class="featured-badge">
@@ -44,13 +48,19 @@
                     (click)="openUrl(project.demoUrl)">
                   </p-button>
                 }
+                @if (project.documentationUrl) {
+                  <p-button 
+                    label="Documentation" 
+                    icon="pi pi-book" 
+                    size="small"
+                    (click)="openUrl(project.documentationUrl)">
+                  </p-button>
+                }
                 @if (project.githubUrl) {
                   <p-button 
                     label="Source Code" 
                     icon="pi pi-github" 
-                    size="small"
                     severity="secondary"
-                    [outlined]="true"
                     (click)="openUrl(project.githubUrl)">
                   </p-button>
                 }

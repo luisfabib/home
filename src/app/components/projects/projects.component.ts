@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { ChipModule } from 'primeng/chip';
@@ -8,9 +8,10 @@ interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   technologies: string[];
   demoUrl?: string;
+  documentationUrl?: string;
   githubUrl?: string;
   featured: boolean;
 }
@@ -19,48 +20,38 @@ interface Project {
   selector: 'app-projects',
   imports: [CardModule, ButtonModule, ChipModule, AnimateOnScrollModule],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  styleUrl: './projects.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class ProjectsComponent {
   projects: Project[] = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution with Angular frontend, Node.js backend, and PostgreSQL database. Features include user authentication, product catalog, shopping cart, and payment integration.',
-      image: 'assets/images/project1.jpg',
-      technologies: ['Angular', 'Node.js', 'PostgreSQL', 'Stripe API', 'Docker'],
-      demoUrl: 'https://demo-ecommerce.com',
-      githubUrl: 'https://github.com/johndoe/ecommerce',
+      title: 'Fhircraft',
+      description: 'Fhircraft is a Python package that dynamically generates Pydantic FHIR (Fast Healthcare Interoperability Resources) resource models from FHIR specifications, enabling comprehensive data structuring, validation, and typing within Python. It also offers a fully functional FHIRPath engine and code generation features to facilitate integration with other systems.',
+      image: 'images/fhicraft-thumbnail.png',
+      technologies: ['Python', 'Pydantic', 'FHIR', 'FHIRPath', ],
+      documentationUrl: 'https://luisfabib.github.io/fhircraft/',
+      githubUrl: 'https://github.com/luisfabib/fhircraft/tree/main/fhircraft',
       featured: true
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A collaborative task management application built with React and Firebase. Real-time updates, team collaboration, and project tracking capabilities.',
-      image: 'assets/images/project2.jpg',
-      technologies: ['React', 'Firebase', 'TypeScript', 'Material-UI'],
+      title: 'DeerLab',
+      description: 'A comprehensive free scientific software package for Python focused on modeling, penalized least-squares regression, and uncertainty quantification. It provides highly specialized on the analysis of dipolar EPR (electron paramagnetic resonance) spectroscopy data.',
+      image: 'images/deerlab-thumbnail.png',
+      technologies: ['Python', 'Numpy', 'Scipy'],
       demoUrl: 'https://demo-taskapp.com',
       githubUrl: 'https://github.com/johndoe/taskapp',
       featured: true
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
-      description: 'A responsive weather dashboard that displays current weather, forecasts, and historical data. Built with Angular and integrates multiple weather APIs.',
-      image: 'assets/images/project3.jpg',
-      technologies: ['Angular', 'Chart.js', 'OpenWeather API', 'SCSS'],
-      demoUrl: 'https://demo-weather.com',
-      githubUrl: 'https://github.com/johndoe/weather',
-      featured: false
-    },
-    {
-      id: 4,
-      title: 'Portfolio Website',
-      description: 'A modern, responsive portfolio website built with Angular and PrimeNG. Features smooth animations, dark theme, and optimized performance.',
-      image: 'assets/images/project4.jpg',
-      technologies: ['Angular', 'PrimeNG', 'SCSS', 'TypeScript'],
-      demoUrl: 'https://johndoe-portfolio.com',
-      githubUrl: 'https://github.com/johndoe/portfolio',
+      title: 'Hyscorean',
+      description: 'Hyscorean is an open-source package of EleXsys and MATLAB software with graphical user-interface for acquiring non-uniform sampled HYSCORE data and for analyzing, both, uniform and non-uniform HYSCORE data, including validation and EasySpin-based fitting.',
+      image: 'images/hyscorean-thumbnail.png',
+      technologies: ['Matlab', 'ProDel'],
+      githubUrl: 'https://github.com/luisfabib/Hyscorean?tab=readme-ov-file',
       featured: false
     }
   ];
