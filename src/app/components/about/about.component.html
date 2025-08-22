@@ -6,33 +6,59 @@
     </div>
 
     <div class="about-content">
-      <div class="about-text" pAnimateOnScroll enterClass="fadeinleft" duration="1000">
-        <p-card>
-          <div class="about-description">
-            <p>
-              I'm a passionate Full Stack Developer with over 3 years of experience in creating 
-              web applications. I love turning complex problems into simple, beautiful and 
-              intuitive solutions.
-            </p>
-            <p>
-              My expertise spans across modern JavaScript frameworks, backend technologies, 
-              and cloud platforms. I'm always eager to learn new technologies and stay 
-              up-to-date with the latest industry trends.
-            </p>
-            <p>
-              When I'm not coding, you can find me reading tech blogs, contributing to 
-              open-source projects, or exploring new places. I believe in clean code, 
-              user-centered design, and continuous learning.
-            </p>
-          </div>
-        </p-card>
+      <!-- About Description -->
+      <div class="about-description-section" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+        <div class="about-description">
+          <p>
+            I'm a passionate Scientific Software Engineer with over {{ yearsOfExperience }} years of experience in 
+            conducting scientific research and supporting it through well-built software solutions. I love turning complex problems
+             into simple, beautiful and intuitive solutions.
+          </p>
+          <p>
+            A strong communicator with a track record of success leading cross-functional projects.
+            Committed to utilizing the latest tools and techniques to drive innovation. Adept at
+            leveraging technical skills in data science, and software engineering to deliver actionable
+            insights and impactful outcomes.
+          </p>
+        </div>
       </div>
 
-      <div class="stats-grid" pAnimateOnScroll enterClass="fadeinright" duration="1000">
-        @for (stat of stats; track stat.label) {
-          <div class="stat-card">
-            <div class="stat-value">{{ stat.value }}</div>
-            <div class="stat-label">{{ stat.label }}</div>
+      <!-- Highlights Section -->
+      <div class="highlights-section" pAnimateOnScroll enterClass="fadeinup" duration="1000" delay="200">
+        <h3 class="highlights-title">Key Highlights</h3>
+        <div class="highlights-grid">
+          @for (highlight of highlights; track highlight.title) {
+            <div class="highlight-card">
+              <div class="highlight-icon">
+                <i class="pi pi-star-fill"></i>
+              </div>
+              <div class="highlight-content">
+                <h4 class="highlight-title">{{ highlight.title }}</h4>
+                <p class="highlight-description">{{ highlight.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section" pAnimateOnScroll enterClass="fadeinup" duration="1200">
+      <h3 class="testimonials-title">Testimonials</h3>
+      <div class="testimonials-grid">
+        @for (testimonial of testimonials; track testimonial.author) {
+          <div class="testimonial-card">
+            <div class="quote-icon">
+              <i class="pi pi-thumbs-up-fill"></i>
+            </div>
+            <blockquote class="testimonial-quote">
+              "{{ testimonial.quote }}"
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="author-name">{{ testimonial.author }}</div>
+              <div class="author-position">{{ testimonial.position }}</div>
+              <div class="author-company">{{ testimonial.company }}</div>
+            </div>
           </div>
         }
       </div>
