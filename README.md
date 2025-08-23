@@ -1,4 +1,4 @@
-# PortfolioApp
+# Personal Homepage
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
 
@@ -11,6 +11,14 @@ ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Deploy to GitHub Pages
+
+The deployment to GitHub Pages is automated by just running: 
+
+```
+ng deploy --base-href=/home/
+```
 
 ## Code scaffolding
 
