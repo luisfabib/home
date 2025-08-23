@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { ButtonModule } from 'primeng/button';
 import { MegaMenuItem } from 'primeng/api';
@@ -7,12 +7,13 @@ import { MegaMenuItem } from 'primeng/api';
   selector: 'app-header',
   imports: [MegaMenuModule, ButtonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
   items: MegaMenuItem[] = [
     {
-      label: 'Portfolio',
+      label: 'Navigation',
       icon: 'pi pi-home',
       items: [
         [
