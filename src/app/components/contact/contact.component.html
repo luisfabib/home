@@ -12,83 +12,7 @@
     }
 
     <div class="contact-content">
-      <!-- Contact Form -->
-      <div class="contact-form" pAnimateOnScroll enterClass="fadeinleft" duration="1000">
-        <p-card>
-          <div class="form-header">
-            <h3>Send me a message</h3>
-            <p>I'd love to hear from you. Send me a message and I'll respond as soon as possible.</p>
-          </div>
 
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="name">Name *</label>
-              <input 
-                pInputText 
-                id="name" 
-                formControlName="name"
-                placeholder="Your full name"
-                [class.ng-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
-              @if (getFieldError('name')) {
-                <small class="error-message">{{ getFieldError('name') }}</small>
-              }
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input 
-                pInputText 
-                id="email" 
-                type="email"
-                formControlName="email"
-                placeholder="your.email@example.com"
-                [class.ng-invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-              @if (getFieldError('email')) {
-                <small class="error-message">{{ getFieldError('email') }}</small>
-              }
-            </div>
-
-            <div class="form-group">
-              <label for="subject">Subject *</label>
-              <input 
-                pInputText 
-                id="subject" 
-                formControlName="subject"
-                placeholder="What's this about?"
-                [class.ng-invalid]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
-              @if (getFieldError('subject')) {
-                <small class="error-message">{{ getFieldError('subject') }}</small>
-              }
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea 
-                pInputTextarea 
-                id="message" 
-                formControlName="message"
-                rows="5"
-                placeholder="Tell me about your project or just say hello..."
-                [class.ng-invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
-              </textarea>
-              @if (getFieldError('message')) {
-                <small class="error-message">{{ getFieldError('message') }}</small>
-              }
-            </div>
-
-            <div class="form-submit">
-              <p-button 
-                type="submit"
-                label="Send Message" 
-                icon="pi pi-send" 
-                size="large"
-                [loading]="isSubmitting"
-                loadingIcon="pi pi-spinner">
-              </p-button>
-            </div>
-          </form>
-        </p-card>
-      </div>
 
       <!-- Contact Info -->
       <div class="contact-info" pAnimateOnScroll enterClass="fadeinright" duration="1000">
@@ -111,21 +35,6 @@
           </div>
         </div>
 
-        <div class="social-links">
-          <h4>Follow me</h4>
-          <div class="social-buttons">
-            @for (social of socialLinks; track social.label) {
-              <p-button 
-                [icon]="social.icon"
-                [pTooltip]="social.label"
-                severity="secondary"
-                [outlined]="true"
-                [rounded]="true"
-                (click)="openLink(social.url)">
-              </p-button>
-            }
-          </div>
-        </div>
       </div>
     </div>
   </div>

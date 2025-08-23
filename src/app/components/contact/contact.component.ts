@@ -18,10 +18,7 @@ interface ContactInfo {
 @Component({
   selector: 'app-contact',
   imports: [
-    ReactiveFormsModule,
     CardModule,
-    InputText,
-    InputTextarea,
     ButtonModule,
     MessageModule,
     TooltipModule,
@@ -40,45 +37,28 @@ export class ContactComponent {
     {
       icon: 'pi pi-envelope',
       label: 'Email',
-      value: 'john.doe@example.com',
-      link: 'mailto:john.doe@example.com'
-    },
-    {
-      icon: 'pi pi-phone',
-      label: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: 'luis.fabregas.ibanez@protonmail.ch',
+      link: 'mailto:luis.fabregas.ibanez@protonmail.ch'
     },
     {
       icon: 'pi pi-map-marker',
       label: 'Location',
-      value: 'San Francisco, CA'
+      value: 'Zurich, Switzerland'
     },
     {
       icon: 'pi pi-linkedin',
       label: 'LinkedIn',
-      value: 'linkedin.com/in/johndoe',
-      link: 'https://linkedin.com/in/johndoe'
-    }
-  ];
-
-  socialLinks = [
+      value: 'linkedin.com/in/luisfabib',
+      link: 'https://linkedin.com/in/luisfabib'
+    },
     {
       icon: 'pi pi-github',
       label: 'GitHub',
-      url: 'https://github.com/johndoe'
-    },
-    {
-      icon: 'pi pi-twitter',
-      label: 'Twitter',
-      url: 'https://twitter.com/johndoe'
-    },
-    {
-      icon: 'pi pi-linkedin',
-      label: 'LinkedIn',
-      url: 'https://linkedin.com/in/johndoe'
+      value: 'github.com/luisfabib',
+      link: 'https://github.com/luisfabib'
     }
   ];
+
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({

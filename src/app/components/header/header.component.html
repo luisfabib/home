@@ -1,16 +1,70 @@
 <header class="header">
   <div class="container">
-    <div class="nav-brand">
-      <h2>Luis Fábregas-Ibáñez</h2>
+        <div class="nav-brand">
+      <h2 class="brand-title">Luis Fábregas-Ibáñez</h2>
     </div>
-    <div class="nav-menu">
-      <p-megaMenu [model]="items" class="custom-megamenu"></p-megaMenu>
+    
+    <!-- Mobile menu toggle -->
+    <button 
+      class="mobile-menu-toggle" 
+      (click)="toggleMobileMenu()" 
+      [attr.aria-expanded]="isMobileMenuOpen"
+      aria-label="Toggle navigation menu"
+      type="button">
+      <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+      <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+      <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+    </button>
+    
+    <div class="nav-menu" [class.mobile-open]="isMobileMenuOpen">
+      <!-- Desktop MegaMenu -->
+      <div class="custom-megamenu desktop-menu">
+        <p-megaMenu 
+          [model]="menuItems">
+        </p-megaMenu>
+      </div>
+      
+      <!-- Mobile Menu Items -->
+      <nav class="mobile-menu-items">
+        <ul class="mobile-nav-list">
+          <li><a href="#" (click)="scrollToSection('hero'); $event.preventDefault()">
+            <i class="pi pi-home"></i>Home
+          </a></li>
+          <li><a href="#" (click)="scrollToSection('about'); $event.preventDefault()">
+            <i class="pi pi-user"></i>About Me
+          </a></li>
+          <li><a href="#" (click)="scrollToSection('skills'); $event.preventDefault()">
+            <i class="pi pi-cog"></i>Skills
+          </a></li>
+          <li><a href="#" (click)="scrollToSection('experience'); $event.preventDefault()">
+            <i class="pi pi-briefcase"></i>Experience
+          </a></li>
+          <li><a href="#" (click)="scrollToSection('projects'); $event.preventDefault()">
+            <i class="pi pi-folder"></i>Projects
+          </a></li>
+          <li><a href="#" (click)="scrollToSection('publications'); $event.preventDefault()">
+            <i class="pi pi-book"></i>Publications
+          </a></li>
+          <li><a href="#" (click)="scrollToSection('education'); $event.preventDefault()">
+            <i class="pi pi-graduation-cap"></i>Education
+          </a></li>
+          <li><a href="#" (click)="scrollToSection('awards'); $event.preventDefault()">
+            <i class="pi pi-trophy"></i>Awards
+          </a></li>
+          <li><a href="#" (click)="scrollToSection('certifications'); $event.preventDefault()">
+            <i class="pi pi-verified"></i>Certifications
+          </a></li>
+          <li><a href="#" (click)="scrollToSection('contact'); $event.preventDefault()">
+            <i class="pi pi-envelope"></i>Contact
+          </a></li>
+        </ul>
+      </nav>
+      
       <p-button 
         label="Download CV" 
-        icon="pi pi-download" 
-        size="small"
-        severity="primary"
-        [outlined]="true"
+        icon="pi pi-download"
+        severity="secondary"
+        [raised]="true"
         class="cv-button">
       </p-button>
     </div>

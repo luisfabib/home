@@ -24,7 +24,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
   }
 
@@ -35,7 +35,7 @@
 
     .expertise-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
       gap: 1.5rem;
     }
 
@@ -47,8 +47,8 @@
 
         .expertise-icon {
           flex-shrink: 0;
-          width: 40px;
-          height: 40px;
+          width: 2.5rem;
+          height: 2.5rem;
           background: var(--gradient-primary);
           border-radius: 50%;
           display: flex;
@@ -143,7 +143,7 @@
 
     .skill-item {
       padding-bottom: 1rem;
-      border-bottom: 1px solid #334155;
+      border-bottom: 0.0625rem solid #334155;
 
       &:last-child {
         border-bottom: none;
@@ -203,13 +203,13 @@
 
   .p-card {
       background: var(--bg-secondary);
-      border: 1px solid var(--border-primary);
+      border: 0.0625rem solid var(--border-primary);
       border-radius: 1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
 
       &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px var(--shadow-accent);
+        transform: translateY(-0.3125rem);
+        box-shadow: 0 0.625rem 1.875rem var(--shadow-accent);
       }
 
       .p-card-body {
@@ -254,7 +254,7 @@
     }
   }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .skills {
     padding: 3rem 0;
 
@@ -285,8 +285,8 @@
           gap: 0.75rem;
 
           .expertise-icon {
-            width: 35px;
-            height: 35px;
+            width: 2.1875rem;
+            height: 2.1875rem;
 
             i {
               font-size: 1rem;

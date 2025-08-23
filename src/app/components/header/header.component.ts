@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, HostListener } from '@angular/core';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { ButtonModule } from 'primeng/button';
 import { MegaMenuItem } from 'primeng/api';
@@ -11,7 +11,9 @@ import { MegaMenuItem } from 'primeng/api';
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
-  items: MegaMenuItem[] = [
+  isMobileMenuOpen = false;
+  
+  menuItems: MegaMenuItem[] = [
     {
       label: 'Navigation',
       icon: 'pi pi-home',
@@ -91,10 +93,35 @@ export class HeaderComponent {
     }
   ];
 
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    const target = event.target as HTMLElement;
+    const header = target.closest('.header');
+    
+    // Close mobile menu if clicking outside header
+    if (!header && this.isMobileMenuOpen) {
+      this.isMobileMenuOpen = false;
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    // Close mobile menu on window resize to handle orientation changes
+    if (window.innerWidth > 768) {
+      this.isMobileMenuOpen = false;
+    }
+  }
+
   scrollToSection(sectionId: string) {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      // Close mobile menu after navigation
+      this.isMobileMenuOpen = false;
     }
   }
 }

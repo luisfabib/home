@@ -29,13 +29,13 @@
 
       .p-card {
           background: #1f293a;
-          border: 1px solid #334155;
+          border: 0.0625rem solid #334155;
           border-radius: 1rem;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
 
           &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-0.125rem);
+            box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
           }
 
           .p-card-body {
@@ -45,7 +45,7 @@
 
       .publication-card {
         display: grid;
-        grid-template-columns: 200px 1fr;
+        grid-template-columns: 12.5rem 1fr;
         gap: 2rem;
         padding: 1rem 2rem;
 
@@ -59,7 +59,7 @@
           .thumbnail-placeholder {
             width: 100%;            
             background: #334155;
-            border: 2px solid #475569;
+            border: 0.125rem solid #475569;
             border-radius: 0.5rem;
             display: flex;
             align-items: center;
@@ -72,14 +72,14 @@
 
           }
           .thumbnail-placeholder {
-            height: 300px !important;
+            height: 18.75rem !important;
           }
 
         }
         .publication-type {
           display: block;
           width: fit-content;
-          margin-bottom: .25rem;
+          margin-bottom: 0.25rem;
         }
 
         .publication-content {
@@ -92,7 +92,7 @@
               color: #ffffff;
               font-size: 1.2rem;
               font-weight: 600;
-              margin-bottom: .25rem;
+              margin-bottom: 0.25rem;
               line-height: 1.4;
             }
 
@@ -153,6 +153,7 @@
 
     .pagination-wrapper {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       margin-bottom: 3rem;
 
@@ -182,7 +183,7 @@
         }
 
         .p-dropdown {
-          border: 1px solid #475569;
+          border: 0.0625rem solid #475569;
           color: #ffffff;
 
           .p-dropdown-label {
@@ -194,14 +195,14 @@
 
     .publication-stats {
       background: #1e293b;
-      border: 1px solid #334155;
+      border: 0.0625rem solid #334155;
       border-radius: 1rem;
       padding: 2rem;
       margin-bottom: 2rem;
 
       .stats-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
         gap: 2rem;
 
         .stat-item {
@@ -231,7 +232,7 @@
   .keyword-chip {
     background: var(--bg-tertiary);
     color: var(--text-secondary);
-    border: 1px solid var(--border-primary);
+    border: 0.0625rem solid var(--border-primary);
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
@@ -241,7 +242,7 @@
   .abstract-dialog {
     .p-dialog-header {
       background: #1e293b;
-      border-bottom: 1px solid #334155;
+      border-bottom: 0.0625rem solid #334155;
       padding: 1.5rem 2rem;
 
       .p-dialog-title {
@@ -258,7 +259,7 @@
 
     .p-dialog-footer {
       background: #1e293b;
-      border-top: 1px solid #334155;
+      border-top: 0.0625rem solid #334155;
       padding: 1.5rem 2rem;
     }
   }
@@ -266,7 +267,7 @@
   .dialog-keyword-chip .p-chip {
     background: var(--bg-tertiary);
     color: var(--text-secondary);
-    border: 1px solid var(--border-primary);
+    border: 0.0625rem solid var(--border-primary);
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
@@ -351,21 +352,21 @@
   flex-wrap: wrap;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 75rem) {
   .publications {
     .publication-card {
-      grid-template-columns: 150px 1fr;
+      grid-template-columns: 9.375rem 1fr;
       gap: 1.5rem;
 
       .publication-thumbnail .thumbnail-placeholder {
-        width: 120px;
-        height: 160px;
+        width: 7.5rem;
+        height: 10rem;
       }
     }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .publications {
     padding: 3rem 0;
 
@@ -376,7 +377,7 @@
     }
 
     .publication-card {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr !important;
       gap: 1.5rem;
       padding: 1.5rem;
 
@@ -384,11 +385,14 @@
         justify-self: center;
 
         .thumbnail-placeholder {
-          width: 100px;
-          height: 130px;
+          width: 6.25rem;
+          height: 8.125rem;
         }
-      }
+      } 
 
+      .publication-thumbnail {
+        display: none !important;
+      }
       .publication-content {
         .publication-title {
           font-size: 1.2rem;
@@ -401,18 +405,23 @@
     }
 
     .publication-stats {
-      padding: 1.5rem;
-      margin-bottom: 2rem;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
 
       .stats-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        gap: 0.75rem;
 
         .stat-item {
-          padding: 1rem;
+          padding: 0.75rem;
 
           .stat-number {
-            font-size: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+          }
+
+          .stat-label {
+            font-size: 0.8rem;
           }
         }
       }
@@ -424,10 +433,29 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   .publications {
-    .publication-stats .stats-grid {
-      grid-template-columns: 1fr;
+    .publication-stats {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+
+        .stat-item {
+          padding: 0.5rem;
+
+          .stat-number {
+            font-size: 1.25rem;
+            margin-bottom: 0.125rem;
+          }
+
+          .stat-label {
+            font-size: 0.75rem;
+          }
+        }
+      }
     }
 
     .publication-card {

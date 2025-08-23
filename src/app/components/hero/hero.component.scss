@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: 120px;
+  padding-top: 7.5rem;
   background: var(--bg-primary);
   overflow: hidden;
 
@@ -15,7 +15,7 @@
   .profile-picture {
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #3b82f6;
+    border: 0.25rem solid #3b82f6;
   }
   
   .hero-content {
@@ -62,20 +62,21 @@
   }
 
   .hero-image {
+      height: 18.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
 
     .image-placeholder {
-      width: 300px;
-      height: 300px;
+      width: 18.75rem;
+      height: 18.75rem;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 3px solid var(--accent-primary);
-      box-shadow: 0 0 30px var(--shadow-accent);
+      border: 0.1875rem solid var(--accent-primary);
+      box-shadow: 0 0 1.875rem var(--shadow-accent);
     }
   }
 
@@ -99,14 +100,14 @@
     transform: translateX(-50%) translateY(0);
   }
   40% {
-    transform: translateX(-50%) translateY(-10px);
+    transform: translateX(-50%) translateY(-0.625rem);
   }
   60% {
-    transform: translateX(-50%) translateY(-5px);
+    transform: translateX(-50%) translateY(-0.3125rem);
   }
 }
 
-@media (max-width: 968px) {
+@media (max-width: 60.5rem) {
   .hero {
     .hero-content {
       grid-template-columns: 1fr;
@@ -121,13 +122,18 @@
     }
 
     .hero-image .image-placeholder {
-      width: 200px;
-      height: 200px;
+      width: 12.5rem;
+      height: 12.5rem;
+    }
+
+    .hero-buttons {
+      display: inline-flex !important;
+      margin: auto;
     }
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 40rem) {
   .hero {
     .hero-text {
       .hero-title {
