@@ -35,6 +35,41 @@ interface Experience {
 export class ExperienceComponent {
   experiences: Experience[] = [
     {
+      position: 'Biomedical Software Engineer',
+      company: 'University Hospital Zurich',
+      location: 'Zurich, Switzerland',
+      startDate: 'April 2023',
+      endDate: 'Present',
+      duration: 'Ongoing',
+      employmentType: 'Full-time',
+      description: 'Design and development of an open-source data platform for precision oncology research. Promotion and piloting of interoperability standards within the hospital ecosystem.',
+      responsibilities: [
+        'Develop and maintain a robust data platform for managing and analyzing biomedical data',
+        'Support infrastructure and data needs for the first clinical trial data collaboration between a hospital and a pharmaceutical company in Switzerland',
+        'Proof-of-concept implementations of interoperability standards (FHIR, OpenAPI, etc.) within the hospital ecosystem',
+        'Design and support the implementation of APIs for data exchange of genomics and clinical data',
+      ],
+      achievements: [
+        'Developed and open-sourced Onconova, a web-based data platform for precision oncology research, enabling efficient data management and analysis.',
+        'Successfully completed the Precision Oncology Program (POP) study, facilitating data collaboration between University Hospital Zurich and a leading pharmaceutical company.',
+        'Piloted the implementation of interoperability standards and supported the deployment of APIs for seamless data exchange within the hospital ecosystem.',
+      ],
+      technologies: [
+        'Python',
+        'Typescript',
+        'SQL',
+        'OpenAPI',
+        'FHIR',
+        'Docker',
+        'Kubernetes',        
+        'Django',
+        'Angular',
+        'PostgreSQL',
+      ],
+      companyLogo: 'images/usz-logo.png',
+      companyWebsite: 'https://www.usz.ch/',
+    },
+    {
       position: 'Physical Chemistry Researcher',
       company: 'ETH Zurich',
       location: 'Zurich, Switzerland',
@@ -69,8 +104,6 @@ export class ExperienceComponent {
       ],
       companyLogo: 'images/eth-logo.png',
       companyWebsite: 'https://ethz.ch',
-      teamSize: '12-16 person research team',
-      reportingTo: 'Principal Researchers'
     },
   ];
 
