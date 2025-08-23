@@ -109,6 +109,9 @@
 
 @media (max-width: 60.5rem) {
   .hero {
+    .scroll-indicator {
+      display: none;
+    }
     .hero-content {
       grid-template-columns: 1fr;
       gap: 2rem;
@@ -129,6 +132,7 @@
     .hero-buttons {
       display: inline-flex !important;
       margin: auto;
+      margin-bottom: 2rem !important;
     }
   }
 }
