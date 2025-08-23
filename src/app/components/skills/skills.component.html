@@ -2,42 +2,159 @@
   <div class="container">
     <div class="section-header" pAnimateOnScroll enterClass="fadeinup" duration="1000">
       <h2 class="section-title">Skills & Expertise</h2>
-      <p class="section-subtitle">Technologies I work with</p>
+      <p class="section-subtitle">Professional and personal competencies</p>
     </div>
 
-    <div class="skills-content">
-      <!-- Skill Categories -->
-      <div class="skill-categories" pAnimateOnScroll enterClass="fadeinleft" duration="1000">
-        @for (category of skillCategories; track category.name) {
-          <div class="skill-category">
-            <div class="category-header">
-              <i [class]="category.icon"></i>
-              <h3>{{ category.name }}</h3>
-            </div>
-            <div class="skills-chips">
-              @for (skill of category.skills; track skill) {
-                <p-chip [label]="skill" class="skill-chip"></p-chip>
-              }
-            </div>
+    <div class="skills-grid">
+      <!-- Professional Expertise - Spans both columns at top -->
+      <div class="professional-expertise" pAnimateOnScroll enterClass="fadeinup" duration="1000">
+        <p-card>
+          
+          <div class="expertise-grid">
+            @for (expertise of professionalExpertise; track expertise.name) {
+              <div class="expertise-item">
+                <div class="expertise-info">
+                  <div class="expertise-icon">
+                    <i [class]="expertise.icon"></i>
+                  </div>
+                  <div class="expertise-content">
+                    <div class="expertise-header">
+                      <div class="expertise-name">{{ expertise.name }}</div>
+                      <div class="skill-rating">
+                        @for (filled of getStars(expertise.rating); track $index) {
+                          <i class="star" 
+                             [class.filled]="filled"
+                             [ngClass]="filled ? 'pi pi-star-fill' : 'pi pi-star'">
+                          </i>
+                        }
+                      </div>
+                    </div>
+                    <div class="expertise-annotation">{{ expertise.annotation }}</div>
+                  </div>
+                </div>
+              </div>
+            }
           </div>
-        }
+        </p-card>
       </div>
 
-      <!-- Top Skills with Progress -->
-      <div class="top-skills" pAnimateOnScroll enterClass="fadeinright" duration="1000">
-        <h3 class="top-skills-title">Proficiency Levels</h3>
-        @for (skill of topSkills; track skill.name) {
-          <div class="skill-item">
-            <div class="skill-header">
-              <span class="skill-name">{{ skill.name }}</span>
-              <span class="skill-percentage">{{ skill.level }}%</span>
-            </div>
-            <p-progressBar 
-              [value]="skill.level" 
-              [showValue]="false"
-              styleClass="skill-progress">
-            </p-progressBar>
+      <!-- Programming Skills - Takes full left column -->
+      @for (group of skillGroups; track group.name) {
+        @if (group.name === 'Programming Skills') {
+          <div class="skill-group programming-skills" pAnimateOnScroll enterClass="fadeinleft" duration="1000">
+            <p-card>
+              <div class="group-header">
+                <i [class]="group.icon"></i>
+                <h3>{{ group.name }}</h3>
+              </div>
+              
+              <div class="skills-list">
+                @for (skill of group.skills; track skill.name) {
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <div class="skill-name-section">
+                        <div class="skill-name">{{ skill.name }}</div>
+                        @if (skill.isNative) {
+                          <p-tag 
+                            value="Native" 
+                            severity="success" 
+                            styleClass="native-tag">
+                          </p-tag>
+                        } @else if (skill.certification) {
+                          <p-tag 
+                            [value]="skill.certification" 
+                            severity="info" 
+                            styleClass="certification-tag">
+                          </p-tag>
+                        }
+                      </div>
+                      <div class="skill-rating">
+                        @for (filled of getStars(skill.rating); track $index) {
+                          <i class="star" 
+                             [class.filled]="filled"
+                             [ngClass]="filled ? 'pi pi-star-fill' : 'pi pi-star'">
+                          </i>
+                        }
+                      </div>
+                    </div>
+                    <div class="skill-annotation">{{ skill.annotation }}</div>
+                    @if (skill.frameworks && skill.frameworks.length > 0) {
+                      <div class="frameworks-chips">
+                        @for (framework of skill.frameworks; track framework) {
+                          <p-chip 
+                            [label]="framework" 
+                            styleClass="framework-chip">
+                          </p-chip>
+                        }
+                      </div>
+                    }
+                  </div>
+                }
+              </div>
+            </p-card>
           </div>
+        }
+      }
+
+      <!-- Other Skills - Stacked in right column -->
+      <div class="other-skills">
+        @for (group of skillGroups; track group.name) {
+          @if (group.name !== 'Programming Skills') {
+            <div class="skill-group" pAnimateOnScroll enterClass="fadeinright" duration="1000">
+              <p-card>
+                <div class="group-header">
+                  <i [class]="group.icon"></i>
+                  <h3>{{ group.name }}</h3>
+                </div>
+                
+                <div class="skills-list">
+                  @for (skill of group.skills; track skill.name) {
+                    <div class="skill-item">
+                      <div class="skill-info">
+                        <div class="skill-name-section">
+                          <div class="skill-name">{{ skill.name }}</div>
+                          @if (skill.isNative) {
+                            <p-tag 
+                              value="Native" 
+                              severity="success" 
+                              styleClass="native-tag">
+                            </p-tag>
+                          } @else if (skill.certification) {
+                            <p-tag 
+                              [value]="skill.certification" 
+                              severity="info" 
+                              styleClass="certification-tag">
+                            </p-tag>
+                          }
+                        </div>
+                        @if (group.name !== 'Personal Skills') {
+                          <div class="skill-rating">
+                            @for (filled of getStars(skill.rating); track $index) {
+                              <i class="star" 
+                                 [class.filled]="filled"
+                                 [ngClass]="filled ? 'pi pi-star-fill' : 'pi pi-star'">
+                              </i>
+                            }
+                          </div>
+                        }
+                      </div>
+                      <div class="skill-annotation">{{ skill.annotation }}</div>
+                      @if (skill.frameworks && skill.frameworks.length > 0) {
+                        <div class="frameworks-chips">
+                          @for (framework of skill.frameworks; track framework) {
+                            <p-chip 
+                              [label]="framework" 
+                              styleClass="framework-chip">
+                            </p-chip>
+                          }
+                        </div>
+                      }
+                    </div>
+                  }
+                </div>
+              </p-card>
+            </div>
+          }
         }
       </div>
     </div>
