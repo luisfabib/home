@@ -33,5 +33,5 @@ import { ContactComponent } from './components/contact/contact.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'portfolio-app';
+  title = 'Luis Fábregas-Ibáñez - Homapge';
 }
