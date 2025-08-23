@@ -41,7 +41,6 @@ export class ProjectsComponent {
       description: 'A comprehensive free scientific software package for Python focused on modeling, penalized least-squares regression, and uncertainty quantification. It provides highly specialized on the analysis of dipolar EPR (electron paramagnetic resonance) spectroscopy data.',
       image: 'images/deerlab-thumbnail.png',
       technologies: ['Python', 'Numpy', 'Scipy'],
-      demoUrl: 'https://demo-taskapp.com',
       githubUrl: 'https://github.com/johndoe/taskapp',
       featured: true
     },

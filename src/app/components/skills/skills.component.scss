@@ -1,6 +1,6 @@
 .skills {
   padding: 5rem 0;
-  background: #0f172a;
+  background: var(--bg-primary);
 
   .section-header {
     text-align: center;
@@ -49,7 +49,7 @@
           flex-shrink: 0;
           width: 40px;
           height: 40px;
-          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+          background: var(--gradient-primary);
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -202,56 +202,57 @@
   }
 
   .p-card {
-    border: 1px solid #334155;
-    border-radius: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px var(--shadow-accent);
+      }
+
+      .p-card-body {
+        background: var(--bg-secondary);
+        padding: 2rem;
+      }
     }
 
-    .p-card-body {
-    background: #1e293b;
-      padding: 2rem;
+    .certification-tag .p-tag {
+      background: var(--gradient-primary);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
+      border: none;
     }
 
-  .certification-tag.p-tag {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    color: #ffffff;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.375rem;
-    border: none;
-  }
+    .native-tag .p-tag {
+      background: var(--gradient-success);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
+      border: none;
+    }
 
-  .native-tag.p-tag {
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: #ffffff;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.375rem;
-    border: none;
-  }
-
-    .framework-chip.p-chip {
-      background: #374151;
-      color: #d1d5db;
-      border: 1px solid #4b5563;
+    .framework-chip {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-primary);
       font-size: 0.75rem;
       padding: 0.25rem 0.5rem;
       border-radius: 0.5rem;
       transition: all 0.2s ease;
 
       &:hover {
-        background: #4b5563;
-        color: #ffffff;
+        background: var(--text-accent);
+        color: var(--text-primary);
       }
     }
   }
-}
 
 @media (max-width: 768px) {
   .skills {

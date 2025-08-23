@@ -3,6 +3,37 @@
 /* PrimeNG Theme */
 @use "primeicons/primeicons.css";
 
+/* CSS Variables for Consistent Theming */
+:root {
+  // Main background gradient - used across all sections
+  --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  --bg-primary-inverted: linear-gradient(225deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  --bg-primary-solid: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  
+  // Accent colors
+  --accent-primary: #3b82f6;
+  --accent-secondary: #8b5cf6;
+  --accent-success: #10b981;
+  --accent-warning: #f59e0b;
+  
+  // Gradients for UI elements
+  --gradient-primary: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  --gradient-success: linear-gradient(135deg, #10b981, #059669);
+  --gradient-warning: linear-gradient(135deg, #f59e0b, #d97706);
+  
+  // Text colors
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-accent: #64748b;
+  
+  // Border and shadow colors
+  --border-primary: rgba(71, 85, 105, 0.3);
+  --shadow-primary: rgba(0, 0, 0, 0.1);
+  --shadow-accent: rgba(59, 130, 246, 0.2);
+}
 
 /* Global Styles */
 * {
@@ -14,8 +45,9 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  background: #0f172a;
-  color: #ffffff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
 }
 
 .container {
@@ -24,20 +56,37 @@ body {
   padding: 0 20px;
 }
 
+/* Unified Section Styling */
+.section {
+  padding: 5rem 0;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-primary);
+    z-index: -1;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: var(--bg-tertiary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: var(--text-accent);
 }

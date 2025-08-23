@@ -1,6 +1,6 @@
 .publications {
   padding: 5rem 0;
-  background: #0f172a;
+  background: var(--bg-primary-inverted);
 
   .section-header {
     text-align: center;
@@ -229,11 +229,13 @@
 
 
   .keyword-chip {
-    background: rgba(59, 130, 246, 0.1) !important;
-    color: #3b82f6 !important;
-    border: 1px solid rgba(59, 130, 246, 0.2) !important;
-    font-size: 0.8rem !important;
-    padding: .2rem .5rem;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
   }
 
   .abstract-dialog {
@@ -262,10 +264,13 @@
   }
 
   .dialog-keyword-chip .p-chip {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
     font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
   }
 }
 

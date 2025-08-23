@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { InputText } from 'primeng/inputtext';
@@ -28,7 +28,8 @@ interface ContactInfo {
     AnimateOnScrollModule
   ],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrls: ['./contact.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ContactComponent {
   contactForm: FormGroup;

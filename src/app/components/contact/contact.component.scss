@@ -1,6 +1,6 @@
 .contact {
   padding: 5rem 0;
-  background: #0f172a;
+  background: var(--bg-primary-inverted);
 
   .section-header {
     text-align: center;
@@ -36,16 +36,14 @@
   }
 
   .contact-form {
-    :host ::ng-deep {
-      .p-card {
-        background: #1e293b;
-        border: 1px solid #334155;
-        
+      & .p-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
+
         .p-card-body {
           padding: 2rem;
         }
       }
-    }
 
     .form-header {
       margin-bottom: 2rem;

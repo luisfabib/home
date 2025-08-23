@@ -1,6 +1,6 @@
 .about {
   padding: 5rem 0;
-  background: #1e293b;
+  background: var(--bg-primary-inverted);
 
   .section-header {
     text-align: center;
@@ -67,21 +67,21 @@
     .highlight-card {
       text-align: center;
       padding: 1.5rem 1rem;
-      background: #334155;
-      border: 1px solid #475569;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
       border-radius: 0.75rem;
       transition: all 0.3s ease;
 
       &:hover {
-        border-color: #3b82f6;
+        border-color: var(--accent-primary);
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+        box-shadow: 0 8px 20px var(--shadow-accent);
       }
 
       .highlight-icon {
         width: 40px;
         height: 40px;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        background: var(--gradient-primary);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -126,17 +126,17 @@
     }
 
     .testimonial-card {
-      background: #334155;
-      border: 1px solid #475569;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
       border-radius: 1rem;
       padding: 2rem;
       position: relative;
       transition: all 0.3s ease;
 
       &:hover {
-        border-color: #3b82f6;
+        border-color: var(--accent-primary);
         transform: translateY(-4px);
-        box-shadow: 0 12px 30px rgba(59, 130, 246, 0.15);
+        box-shadow: 0 12px 30px var(--shadow-accent);
       }
 
       .quote-icon {
@@ -145,7 +145,7 @@
         left: 2rem;
         width: 40px;
         height: 40px;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        background: var(--gradient-primary);
         border-radius: 50%;
         display: flex;
         align-items: center;
