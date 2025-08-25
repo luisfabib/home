@@ -17,7 +17,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 The deployment to GitHub Pages is automated by just running: 
 
 ```
-ng deploy --base-href=/home/
+ng deploy --prod --output-path docs
 ```
 
 ## Code scaffolding

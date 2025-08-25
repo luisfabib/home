@@ -37,8 +37,8 @@ export class ContactComponent {
     {
       icon: 'pi pi-envelope',
       label: 'Email',
-      value: 'luis.fabregas.ibanez@protonmail.ch',
-      link: 'mailto:luis.fabregas.ibanez@protonmail.ch'
+      value: 'mail@luisfabregas.com',
+      link: 'mailto:mail@luisfabregas.com'
     },
     {
       icon: 'pi pi-map-marker',
