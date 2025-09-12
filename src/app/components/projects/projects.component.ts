@@ -26,6 +26,16 @@ interface Project {
 export class ProjectsComponent {
   projects: Project[] = [
     {
+      id: 4,
+      title: 'Onconova',
+      description: 'Onconova is an open-source data platform aiming to enable reliable, structured data collection and analysis in precision oncology. Our goal is to support clinical research and development through interoperable, accessible software.',
+      image: 'images/onconova-thumbnail.png',
+      technologies: ['Python', 'Typescript', 'Oncology', 'Interoperability', 'Web Application'],
+      documentationUrl: 'https://luisfabib.github.io/onconova/latest/',
+      githubUrl: 'https://github.com/luisfabib/onconova',
+      featured: true
+    },
+    {
       id: 1,
       title: 'Fhircraft',
       description: 'Fhircraft is a Python package that dynamically generates Pydantic FHIR (Fast Healthcare Interoperability Resources) resource models from FHIR specifications, enabling comprehensive data structuring, validation, and typing within Python. It also offers a fully functional FHIRPath engine and code generation features to facilitate integration with other systems.',
@@ -42,7 +52,7 @@ export class ProjectsComponent {
       image: 'images/deerlab-thumbnail.png',
       technologies: ['Python', 'Numpy', 'Scipy'],
       githubUrl: 'https://github.com/johndoe/taskapp',
-      featured: true
+      featured: false
     },
     {
       id: 3,

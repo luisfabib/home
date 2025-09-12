@@ -247,13 +247,17 @@
       
       .gpa {
         align-self: flex-start;
+        margin: auto;
       }
       
       .degree-info {
+        margin: 0 auto;
+        text-align: center;
         .institution-info {
+          display: block;
           .institution-logo {
-            width: 28px;
-            height: 28px;
+            width: 42px;
+            height: 42px;
           }
         }
       }
