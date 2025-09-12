@@ -20,6 +20,15 @@
   }
 
   .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    
+    .brand-logo {
+      height: 2rem;
+      width: auto;
+    }
+    
     .brand-title {    
       background: var(--gradient-primary);
       -webkit-background-clip: text;
