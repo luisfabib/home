@@ -5,6 +5,7 @@ import { MegaMenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [MegaMenuModule, ButtonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -12,6 +13,7 @@ import { MegaMenuItem } from 'primeng/api';
 })
 export class HeaderComponent {
   isMobileMenuOpen = false;
+
   
   menuItems: MegaMenuItem[] = [
     {

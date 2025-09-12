@@ -7,13 +7,8 @@ import { ButtonModule } from 'primeng/button';
 import { MessageModule } from 'primeng/message';
 import { TooltipModule } from 'primeng/tooltip';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
+import {contactInfo} from './contact.data';
 
-interface ContactInfo {
-  icon: string;
-  label: string;
-  value: string;
-  link?: string;
-}
 
 @Component({
   selector: 'app-contact',
@@ -32,35 +27,11 @@ export class ContactComponent {
   contactForm: FormGroup;
   isSubmitting = false;
   showSuccessMessage = false;
+  contactInfo = contactInfo
 
-  contactInfo: ContactInfo[] = [
-    {
-      icon: 'pi pi-envelope',
-      label: 'Email',
-      value: 'mail@luisfabregas.com',
-      link: 'mailto:mail@luisfabregas.com'
-    },
-    {
-      icon: 'pi pi-map-marker',
-      label: 'Location',
-      value: 'Zurich, Switzerland'
-    },
-    {
-      icon: 'pi pi-linkedin',
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/luisfabib',
-      link: 'https://linkedin.com/in/luisfabib'
-    },
-    {
-      icon: 'pi pi-github',
-      label: 'GitHub',
-      value: 'github.com/luisfabib',
-      link: 'https://github.com/luisfabib'
-    }
-  ];
-
-
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder
+  ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -113,4 +84,5 @@ export class ContactComponent {
     }
     return '';
   }
+
 }
