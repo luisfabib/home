@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { CommonModule } from '@angular/common';
-import { highlights, testimonials } from './about.data';
+import { description, highlights, testimonials } from './about.data';
 
 @Component({
   selector: 'app-about',
@@ -13,5 +13,6 @@ import { highlights, testimonials } from './about.data';
 export class AboutComponent {
   highlights = highlights
   testimonials = testimonials
+  description = description
   yearsOfExperience = new Date().getFullYear() - 2018;
 }

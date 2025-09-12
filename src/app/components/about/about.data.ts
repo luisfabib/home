@@ -27,3 +27,5 @@ export const testimonials = [
       company: "ETH Zurich"
     },
 ];
+
+export const description = `A strong communicator with a track record of success leading cross-functional projects. Committed to utilizing the latest tools and techniques to drive innovation. Adept at leveraging technical skills in data science, and software engineering to deliver actionable insights and impactful outcomes.`

@@ -1,18 +1,22 @@
 import { Component, ViewEncapsulation, HostListener } from '@angular/core';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { ButtonModule } from 'primeng/button';
-import { MegaMenuItem } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { MegaMenuItem, MessageService } from 'primeng/api';
+import { CvPdfGeneratorService } from '../../services/cv-pdf-generator.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MegaMenuModule, ButtonModule],
+  imports: [MegaMenuModule, ButtonModule, ToastModule],
+  providers: [MessageService],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
   isMobileMenuOpen = false;
+  isGeneratingCV = false;
 
   
   menuItems: MegaMenuItem[] = [
@@ -94,6 +98,33 @@ export class HeaderComponent {
       command: () => this.scrollToSection('contact')
     }
   ];
+
+  constructor(
+    private cvGenerator: CvPdfGeneratorService,
+    private messageService: MessageService
+  ) {}
+
+  async downloadCV() {
+    this.isGeneratingCV = true;
+    
+    try {
+      await this.cvGenerator.generateCV();
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: 'CV downloaded successfully!'
+      });
+    } catch (error) {
+      console.error('Error generating CV:', error);
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Failed to generate CV. Please try again.'
+      });
+    } finally {
+      this.isGeneratingCV = false;
+    }
+  }
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;

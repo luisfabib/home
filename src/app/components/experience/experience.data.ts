@@ -34,7 +34,7 @@ export const experience: Experience[] = [
       ],
       achievements: [
         'Developed and open-sourced Onconova, a web-based data platform for precision oncology research, enabling efficient data management and analysis.',
-        'Successfully completed the Precision Oncology Program (POP) study, facilitating data collaboration between University Hospital Zurich and a leading pharmaceutical company.',
+        'Successfully executed the Precision Oncology Program (POP) study, facilitating data collaboration between University Hospital Zurich and a leading pharmaceutical company.',
         'Piloted the implementation of interoperability standards and supported the deployment of APIs for seamless data exchange within the hospital ecosystem.',
       ],
       technologies: [
@@ -70,9 +70,9 @@ export const experience: Experience[] = [
       ],
       achievements: [
         'Developed Deerlab, a state-of-the-art, open-source software package in Python for rigorous and robust statistical analysis of arbitrary data models.',
+        'Earned doctorate with a data science dissertation "that met the highest standards of scholarship", as noted by Prof. Dr. Jeschke.',
         'Headed organization and instruction of a successful international workshop in Seattle, attracting 100+ attendees and featuring multiple instructors.',
         'Developed other software with graphical user interfaces for signal processing and analysis of spectroscopic signals.',
-        'Earned doctorate with a data science dissertation "that met the highest standards of scholarship", as noted by Prof. Dr. Jeschke.',
       ],
       technologies: [
         'Python',
