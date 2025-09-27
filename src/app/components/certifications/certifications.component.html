@@ -12,7 +12,7 @@
           <ng-template pTemplate="header">
             <div class="certification-header">
               <div class="cert-icon">
-                <i [class]="'pi ' + getCategoryIcon(cert.category)"></i>
+                <img [src]="cert.logo" alt="{{ cert.title }} logo" class="cert-logo" />
               </div>
               <div class="cert-info">
                 <h3 class="cert-title">{{ cert.title }}</h3>
@@ -23,13 +23,6 @@
                     Expires: {{ cert.expiryDate }}
                   </span>
                 </div>
-              </div>
-              <div class="cert-level">
-                <p-tag 
-                  [value]="cert.level" 
-                  [severity]="getLevelColor(cert.level)"
-                  class="level-tag">
-                </p-tag>
               </div>
             </div>
           </ng-template>

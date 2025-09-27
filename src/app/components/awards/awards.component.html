@@ -9,7 +9,7 @@
           <ng-template pTemplate="header">
             <div class="award-header">
               <div class="award-icon">
-                <i [class]="'pi ' + getCategoryIcon(award.category)"></i>
+                <img *ngIf="award.logo" [src]="award.logo" alt="{{ award.title }} logo" class="award-logo" />
               </div>
               <div class="award-info">
                 <h3 class="award-title">{{ award.title }}</h3>

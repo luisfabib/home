@@ -6,12 +6,13 @@ import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { Certification, certifications } from './certifications.data';
+import { AvatarModule } from 'primeng/avatar';
 
 
 @Component({
   selector: 'app-certifications',
   standalone: true,
-  imports: [CommonModule, CardModule, ChipModule, TagModule, ButtonModule, ProgressBarModule],
+  imports: [CommonModule, CardModule, ChipModule, TagModule, AvatarModule, ButtonModule, ProgressBarModule],
   templateUrl: './certifications.component.html',
   styleUrl: './certifications.component.scss',
   encapsulation: ViewEncapsulation.None
@@ -37,7 +38,8 @@ export class CertificationsComponent {
       'Artificial Intelligence': 'pi-star',
       'Cybersecurity': 'pi-shield',
       'Software Development': 'pi-code',
-      'Project Management': 'pi-briefcase'
+      'Project Management': 'pi-briefcase',
+      'Healthcare Interoperability': 'pi-globe'
     };
     return icons[category as keyof typeof icons] || 'pi-certificate';
   }

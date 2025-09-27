@@ -82,18 +82,20 @@
     gap: 1rem;
     
     .cert-icon {
-      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      background: white;
       width: 60px;
       height: 60px;
-      border-radius: 12px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       
-      i {
-        font-size: 1.5rem;
-        color: white;
+      img {
+        margin: auto;
+        width: 90%;
+        padding: .2rem;
+        border-radius: 50%;
       }
     }
     
@@ -130,14 +132,6 @@
       }
     }
     
-    .cert-level {
-      .level-tag {
-        .p-tag {
-          font-size: 0.8rem;
-          font-weight: 600;
-        }
-      }
-    }
   }
   
   .certification-content {
@@ -310,9 +304,6 @@
         align-items: center;
       }
       
-      .cert-level {
-        align-self: center;
-      }
     }
     
     .certification-item {
