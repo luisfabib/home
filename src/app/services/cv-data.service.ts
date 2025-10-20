@@ -57,7 +57,7 @@ export class CvDataService {
     const github = contactInfo.find(c => c.label === 'GitHub')?.value || '';
 
     // Get latest entries but don't overly restrict - let PDF generator handle space optimization
-    const latestExperience = experience.slice(0, 3);
+    const latestExperience = experience.slice(0, 2);
     const latestPublications = publications.slice(0, 3);
     const latestProjects = projects.slice(0, 3);
     const latestAwards = awards.slice(0, 3);
