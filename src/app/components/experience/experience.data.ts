@@ -89,7 +89,30 @@ export const experience: Experience[] = [
       companyWebsite: 'https://ethz.ch',
     },
     {
-      position: 'Undergraduate Teaching Assistant',
+      position: 'Visiting Scholar',
+      company: 'University of Washington',
+      location: 'Seattle, Washington, USA',
+      startDate: 'June 2019',
+      endDate: 'September 2019',
+      duration: '4 months',
+      employmentType: 'Full-time',
+      description: 'Worked on the initial development of Deerlab, a comprehensive scientific software package for dipolar EPR spectroscopy data analysis, under the supervision of Prof. Dr. Stoll.',
+      responsibilities: [
+        'Designing and developing Deerlab',
+        'Collaborating with Prof. Dr. Stoll and his research group on software features and validation',
+        'Presenting research progress and findings to the research group',
+      ],
+      achievements: [
+        'Fully developed the first version of Deerlab, which has since become a widely used tool in the EPR spectroscopy community.',
+      ],
+      technologies: [
+        'MATLAB',
+      ],
+      companyLogo: 'images/uw-logo.png',
+      companyWebsite: 'https://https://www.washington.edu/',
+    },
+    {
+      position: 'Undergrad Teaching Assistant',
       company: 'ETH Zurich',
       location: 'Zurich, Switzerland',
       startDate: 'September 2016',
@@ -118,7 +141,7 @@ export const experience: Experience[] = [
       companyWebsite: 'https://ethz.ch',
     },
     {
-      position: 'Undergraduate Research Assistant',
+      position: 'Undergrad Research Assistant',
       company: 'ETH Zurich',
       location: 'Zurich, Switzerland',
       startDate: 'February 2016',
