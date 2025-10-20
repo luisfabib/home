@@ -14,11 +14,11 @@ export const projects: Project[] = [
     {
       id: 4,
       title: 'Onconova',
-      description: 'Onconova is an open-source data platform aiming to enable reliable, structured data collection and analysis in precision oncology. Our goal is to support clinical research and development through interoperable, accessible software.',
+      description: 'Onconova is an open-source data platform aiming to enable reliable, structured data collection and analysis in precision oncology. Its goal is to support clinical research and development through interoperable, accessible software.',
       image: 'images/onconova-thumbnail.png',
       technologies: ['Python', 'Typescript', 'Oncology', 'Interoperability', 'Web Application'],
-      documentationUrl: 'https://luisfabib.github.io/onconova/latest/',
-      githubUrl: 'https://github.com/luisfabib/onconova',
+      documentationUrl: 'https://onconova.github.io/docs/latest/',
+      githubUrl: 'https://github.com/onconova/onconova',
       featured: true
     },
     {
