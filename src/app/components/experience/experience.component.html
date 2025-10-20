@@ -3,105 +3,123 @@
     <h2 class="section-title">Professional Experience</h2>
     <p class="section-subtitle">Career Journey & Key Accomplishments</p>
     
-    <div class="experience-grid">
-      <div *ngFor="let experience of experiences; let i = index" class="experience-item">
-        <p-card class="experience-card" [ngClass]="{'current-position': experience.endDate === 'Present'}">
-          <ng-template pTemplate="header">
-            <div class="experience-header">
-              <div class="header-top">
-                <div class="company-avatar">
-                  <p-avatar 
-                    [image]="experience.companyLogo" 
-                    size="large"
-                    shape="circle"
-                    class="company-logo">
-                  </p-avatar>
+    <div class="experience-carousel-container">
+      <p-carousel 
+        [value]="experiences" 
+        [numVisible]="2" 
+        [numScroll]="1" 
+        [responsiveOptions]="responsiveOptions"
+        [showIndicators]="true"
+        [showNavigators]="true"
+        [circular]="false"
+        class="experience-carousel">
+        
+        <ng-template let-experience pTemplate="item">
+          <div class="experience-item">
+            <p-card class="experience-card" [ngClass]="{'current-position': experience.endDate === 'Present'}">
+              <ng-template pTemplate="header">
+                <div class="experience-header">
+                  <div class="header-top">
+                    <div class="position-info">
+                      <h3 class="position-title">{{ experience.position }}</h3>
+                    </div>
+                    <div class="header-actions" *ngIf="experience.companyWebsite">
+                      <p-button 
+                        icon="pi pi-external-link" 
+                        severity="secondary"
+                        [text]="true"
+                        [rounded]="true"
+                        size="small"
+                        (click)="openCompanyWebsite(experience.companyWebsite!)"
+                        pTooltip="Visit Company Website">
+                      </p-button>
+                    </div>
+                  </div>
+                  
+                  <div class="company-info">
+                    <div class="company-avatar">
+                      <p-avatar 
+                        [image]="experience.companyLogo" 
+                        size="large"
+                        shape="circle"
+                        class="company-logo">
+                      </p-avatar>
+                    </div>
+                    <div class="company-details">
+                      <h4 class="company-name">{{ experience.company }}</h4>
+                      <span class="location">{{ experience.location }}</span>
+                    </div>
+                  </div>
+                  
+                  <div class="employment-meta">
+                    <div class="date-info">
+                      <span class="date-range">{{ getDateRange(experience) }}</span>
+                      <span class="duration">{{ experience.duration }}</span>
+                    </div>
+                    <p-tag 
+                      [value]="experience.employmentType" 
+                      [severity]="getEmploymentTypeColor(experience.employmentType)"
+                      class="employment-type">
+                    </p-tag>
+                  </div>
                 </div>
-                <div class="position-info">
-                  <h3 class="position-title">{{ experience.position }}</h3>
-                  <h4 class="company-name">{{ experience.company }}</h4>
-                  <span class="location">{{ experience.location }}</span>
-                </div>
-                <div class="header-actions" *ngIf="experience.companyWebsite">
-                  <p-button 
-                    icon="pi pi-external-link" 
-                    severity="secondary"
-                    [text]="true"
-                    [rounded]="true"
-                    size="small"
-                    (click)="openCompanyWebsite(experience.companyWebsite!)"
-                    pTooltip="Visit Company Website">
-                  </p-button>
-                </div>
-              </div>
+              </ng-template>
               
-              <div class="employment-meta">
-                <div class="date-info">
-                  <span class="date-range">{{ getDateRange(experience) }}</span>
-                  <span class="duration">{{ experience.duration }}</span>
+              <div class="experience-content">
+                <div class="description-section">
+                  <p class="job-description">{{ experience.description }}</p>
                 </div>
-                <p-tag 
-                  [value]="experience.employmentType" 
-                  [severity]="getEmploymentTypeColor(experience.employmentType)"
-                  class="employment-type">
-                </p-tag>
-              </div>
-            </div>
-          </ng-template>
-          
-          <div class="experience-content">
-            <div class="description-section">
-              <p class="job-description">{{ experience.description }}</p>
-            </div>
-            
-            <div class="team-info" *ngIf="experience.teamSize || experience.reportingTo">
-              <div class="team-details">
-                <div class="team-size" *ngIf="experience.teamSize">
-                  <i class="pi pi-users"></i>
-                  <span>{{ experience.teamSize }}</span>
+                
+                <div class="team-info" *ngIf="experience.teamSize || experience.reportingTo">
+                  <div class="team-details">
+                    <div class="team-size" *ngIf="experience.teamSize">
+                      <i class="pi pi-users"></i>
+                      <span>{{ experience.teamSize }}</span>
+                    </div>
+                    <div class="reporting" *ngIf="experience.reportingTo">
+                      <i class="pi pi-user"></i>
+                      <span>{{ experience.reportingTo }}</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="reporting" *ngIf="experience.reportingTo">
-                  <i class="pi pi-user"></i>
-                  <span>{{ experience.reportingTo }}</span>
+                
+                <div class="responsibilities-section" *ngIf="experience.responsibilities.length > 0">
+                  <h4>Key Responsibilities</h4>
+                  <ul class="responsibilities-list">
+                    <li *ngFor="let responsibility of experience.responsibilities">
+                      {{ responsibility }}
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="achievements-section" *ngIf="experience.achievements.length > 0">
+                  <h4>Key Achievements</h4>
+                  <div class="achievements-list">
+                    <p-chip 
+                      *ngFor="let achievement of experience.achievements" 
+                      [label]="achievement"
+                      icon="pi pi-star"
+                      class="achievement-chip">
+                    </p-chip>
+                  </div>
+                </div>
+                
+                <div class="technologies-section" *ngIf="experience.technologies.length > 0">
+                  <h4>Key Technologies</h4>
+                  <div class="technologies-list">
+                    <p-tag 
+                      *ngFor="let tech of experience.technologies.slice(0, 6)" 
+                      [value]="tech"
+                      severity="secondary"
+                      class="technology-tag">
+                    </p-tag>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <div class="responsibilities-section" *ngIf="experience.responsibilities.length > 0">
-              <h4>Key Responsibilities</h4>
-              <ul class="responsibilities-list">
-                <li *ngFor="let responsibility of experience.responsibilities">
-                  {{ responsibility }}
-                </li>
-              </ul>
-            </div>
-            
-            <div class="achievements-section" *ngIf="experience.achievements.length > 0">
-              <h4>Key Achievements</h4>
-              <div class="achievements-list">
-                <p-chip 
-                  *ngFor="let achievement of experience.achievements" 
-                  [label]="achievement"
-                  icon="pi pi-star"
-                  class="achievement-chip">
-                </p-chip>
-              </div>
-            </div>
-            
-            <div class="technologies-section" *ngIf="experience.technologies.length > 0">
-              <h4>Key Technologies</h4>
-              <div class="technologies-list">
-                <p-tag 
-                  *ngFor="let tech of experience.technologies.slice(0, 6)" 
-                  [value]="tech"
-                  severity="secondary"
-                  class="technology-tag">
-                </p-tag>
-              </div>
-            </div>
+            </p-card>
           </div>
-        </p-card>
-      </div>
+        </ng-template>
+      </p-carousel>
     </div>
   </div>
 </section>
